@@ -330,21 +330,11 @@ function calculateMenuPos(angleRad, layer, direction, phaseOffset = 0) {
     let x0, y0;
     const oScaleX = oData?.scaleX || getCSSVar('--menu-orbit-scale-x', 'float');
     const oScaleY = oData?.scaleY || getCSSVar('--menu-orbit-scale-y', 'float');
-    oX = oData?.offsetX || 0;
-    oY = oData?.offsetY || 0;
+    const oX = oData?.offsetX || 0;
+    const oY = oData?.offsetY || 0;
 
-    // orbit another menu?
-    let xC = 0, yC = 0;
-    if (oData?.center) {
-        const centerBtn = menuRing.querySelector(`.menu-item[data-menu-id="${oData.center}"]`);
-        if (centerBtn) {
-            xC = parseFloat(centerBtn.dataset.x) || 0;
-            yC = parseFloat(centerBtn.dataset.y) || 0;
-        }
-    }
-
-    x0 = (Math.cos(angleRad + phaseOffset * omega) * r * oScaleX) + oX + xC;
-    y0 = (Math.sin(angleRad + phaseOffset * omega) * r * oScaleY) + oY + yC;
+    x0 = (Math.cos(angleRad + phaseOffset * omega) * r * oScaleX) + oX;
+    y0 = (Math.sin(angleRad + phaseOffset * omega) * r * oScaleY) + oY;
 
     return { r, omega, x0, y0 };
 }
@@ -450,20 +440,8 @@ function positionOrbitRings(rings) {
         layer = oData?.orbitNum || layer;
         const oScaleX = oData?.scaleX || getCSSVar('--menu-orbit-scale-x', 'float');
         const oScaleY = oData?.scaleY || getCSSVar('--menu-orbit-scale-y', 'float');
-        let oX = oData?.offsetX || 0;
-        let oY = oData?.offsetY || 0;
-
-        // orbit another menu?
-        let xC = 0, yC = 0;
-        if (oData?.center) {
-            const centerBtn = menuRing.querySelector(`.menu-item[data-menu-id="${oData.center}"]`);
-            if (centerBtn) {
-                xC = parseFloat(centerBtn.dataset.x) || 0;
-                yC = parseFloat(centerBtn.dataset.y) || 0;
-            }
-        }
-        oX += xC;
-        oY += yC;
+        const oX = oData?.offsetX || 0;
+        const oY = oData?.offsetY || 0;
 
         const baseRadius = getCSSVar('--menu-radius', 'int') || 180;
         const diameter = (baseRadius * layer * 1.2 + 60) * 2;
@@ -1795,6 +1773,23 @@ function resetLayoutTransition() {
     imageView.classList.remove("no-transition");
 }
 
+const assetsLoaded = [];
+let assetsProgress = 0;
+function preloadAssets(assetsArray, onProgress) {
+    return Promise.all(
+        assetsArray.map(src => new Promise(resolve => {
+            const asset = new Image();
+            asset.src = src;
+            asset.onload = () => {
+                assetsLoaded.push(asset);
+                assetsProgress++;
+                if (onProgress) onProgress(assetsProgress, assetsArray.length);
+                resolve(asset);
+            };
+        }))
+    );
+}
+
 // disable most transitions if simple mode is activated
 if (SIMPLE_MODE) {
     contentView.classList.add("no-transition-at-all");
@@ -1806,13 +1801,19 @@ if (!SIMPLE_MODE) createStarfield();
 initCardData();
 initLayoutViz();
 
-setLayoutViz(UIPanelTop, false);
-setLayoutViz(UIPanelBottom, false);
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
     setLayoutViz(loading, false);
     setLayoutViz(UIPanelTop, true);
     setLayoutViz(UIPanelBottom, true);
     initMainMenu();
     appLoaded = true;
+    if (!navigator.connection?.saveData) {
+        setLayoutViz(downloadingAssets, true);
+        const progressEl = document.getElementById('loadingProgress');
+        const data = await fetch('assets.json').then(res => res.json());
+        await preloadAssets(data, (loaded, total) => {
+            if (progressEl) progressEl.innerText = `Loading ${loaded} / ${total}`;
+        });
+        setLayoutViz(downloadingAssets, false);
+    }
 });
-
