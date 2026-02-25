@@ -3,8 +3,8 @@
 // --------------------------
 
 // Lazy loader base path
-const LAZY_BASE = 'https://cdn.jsdelivr.net/gh/blurplebun/blurplebun.github.io/';
-const LOCAL_MODE = 0; // if you don't use a cdn service to load images, just set this to true
+const LAZY_BASE = 'https://cdn.jsdelivr.net/gh/blurplebun/blurplebun.github.io@latest/';
+const LOCAL_MODE = true; // if you don't use a cdn service to load images, just set this to true
 
 // Sound control
 const INIT_MASTER_VOL = 1;
@@ -1795,6 +1795,23 @@ function resetLayoutTransition() {
     imageView.classList.remove("no-transition");
 }
 
+const assetsLoaded = [];
+let assetsProgress = 0;
+function preloadAssets(assetsArray, onProgress) {
+    return Promise.all(
+        assetsArray.map(src => new Promise(resolve => {
+            const asset = new Image();
+            asset.src = src;
+            asset.onload = () => {
+                assetsLoaded.push(asset);
+                assetsProgress++;
+                if (onProgress) onProgress(assetsProgress, assetsArray.length);
+                resolve(asset);
+            };
+        }))
+    );
+}
+
 // disable most transitions if simple mode is activated
 if (SIMPLE_MODE) {
     contentView.classList.add("no-transition-at-all");
@@ -1806,12 +1823,19 @@ if (!SIMPLE_MODE) createStarfield();
 initCardData();
 initLayoutViz();
 
-setLayoutViz(UIPanelTop, false);
-setLayoutViz(UIPanelBottom, false);
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
     setLayoutViz(loading, false);
     setLayoutViz(UIPanelTop, true);
     setLayoutViz(UIPanelBottom, true);
     initMainMenu();
     appLoaded = true;
+    if (!navigator.connection?.saveData) {
+        setLayoutViz(downloadingAssets, true);
+        const progressEl = document.getElementById('loadingProgress');
+        const data = await fetch('assets.json').then(res => res.json());
+        await preloadAssets(data, (loaded, total) => {
+            if (progressEl) progressEl.innerText = `Loading ${loaded} / ${total}`;
+        });
+        setLayoutViz(downloadingAssets, false);
+    }
 });
