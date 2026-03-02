@@ -1847,13 +1847,13 @@ async function loadAndPopstateHandler() {
     const menu = params.get('m');
     const card = params.get('i');
 
+    const targetMenu = menuItems.find(m => m.menuId === menu);
+    if (!targetMenu) { returnToMainMenu(); return; };
+    
     // when responding to a popstate event we do *not* want to push another history entry,
     // otherwise the browser back button never actually moves back.  Instead we temporarily
     // ignore history pushes while opening the requested menu/card and then restore the flag.
     ignoreHistoryPush = true;
-
-    const targetMenu = menuItems.find(m => m.menuId === menu);
-    if (!targetMenu) { returnToMainMenu(); return; };
     
     openMenuById(targetMenu.menuId);
     if (card && targetMenu) {
