@@ -4,29 +4,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image" href="icons/fav-icon.png">
-    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image" href="neelo-tiny.png">
+    <link rel="manifest" href="../manifest.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" id="vp">
     <meta name="theme-color" content="#C894F9">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Artifyber">
-    <meta property="og:title" content="Fyberverse">
-    <meta property="og:image" content="https://jonaykon.github.io/fyberverse/images/temp3.png">
-    <meta property="og:description" content="Welcome to the Fyberverse!">
+    <meta property="og:site_name" content="Artineelo">
+    <meta property="og:title" content="Neeloverse">
+    <meta property="og:image" content="neelo-tiny.png">
+    <meta property="og:description" content="Welcome to the Neeloverse!">
     <meta property="og:url" content="https://blurplebun.github.io/">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
-    <title>Artifyber</title>
+    <title>Artineelo</title>
+    <div id="loadingText" class="hidden"></div> <!-- prevent main.js from failing before the site loads -->
 </head>
 
 <body>
 
     <!-- App -->
     <div class="app">
-        <div id="loading" style="text-align: center;">
-            <img id="loadingLogo" class="logo" src="icons/loading.gif" draggable="false">
-            <div id="loadingText" style="margin-top: -35px;">Loading website</div>
-        </div>
+        <div id="loading">loading assets...</div>
         <!-- Starfield -->
         <div id="starfield"></div>
 
@@ -35,10 +33,10 @@
 
             <!-- Main menu center (logo, splash, text) -->
             <div id="mainMenuCenter" class="main-menu-center">
-                <img id="mainMenuLogo" class="logo" src="images/menu-logo.png" draggable="false">
+                <img id="mainMenuLogo" class="logo" src="../images/menu-logo.png" draggable="false">
                 <div class="logo-text">
                     <div class="splash"></div>
-                    <div class="info">artifyber.xyz</div>
+                    <div class="info">Neelo</div>
                 </div>
 
             </div>
@@ -92,7 +90,7 @@
         </dialog>
 
         <!-- Interface -->
-        <div id="UIPanelTop" class="hidden">
+        <div id="UIPanelTop">
 
             <!-- search button -->
             <button id="searchBtn" class="search-btn ui-btn visible" title="Search">
@@ -118,16 +116,7 @@
 
         </div>
 
-        <div id="UIPanelBottom" class="hidden">
-
-            <div id="downloadingAssets" class="hidden" style="display: flex;">
-                <div id="loadingProgress">
-                    Loading...
-                </div>
-                <div style="width: 48px; height: 48px; position: relative;">
-                    <img src="icons/loading.gif" style="position: absolute; top: -14px; left: -14px; height: 76px;">
-                </div>
-            </div>
+        <div id="UIPanelBottom">
 
             <!-- play bgm button -->
             <button id="playBgmBtn" class="playBgm-btn ui-btn visible" title="Play Background Music">
@@ -170,25 +159,27 @@
         </div>
     </div>
 
-    <audio id="sfxClick" src="audios/sfxClick.wav" preload="auto"></audio>
-    <audio id="sfxLink" src="audios/sfxLink.wav" preload="auto"></audio>
-    <audio id="sfxPageClose" src="audios/sfxPageClose.wav" preload="auto"></audio>
-    <audio id="sfxPageOpen" src="audios/sfxPageOpen.wav" preload="auto"></audio>
-    <audio id="sfxSwap" src="audios/sfxSwap.wav" preload="auto"></audio>
-    <audio id="sfxWarp" src="audios/sfxWarp.wav" preload="auto"></audio>
-    <audio id="bgmFyberverse" src="audios/ost/fyberverse.mp3" preload="auto" loop="loop"></audio>
-    <audio id="bgmDeltadim" src="audios/ost/deltadim.mp3" preload="auto" loop="loop"></audio>
-    <audio id="bgmFloriverse" src="audios/ost/floriverse.mp3" preload="auto" loop="loop"></audio>
-    <audio id="bgmDigirel" src="audios/ost/digirel.mp3" preload="auto" loop="loop"></audio>
-    <audio id="bgmNansenz" src="audios/ost/nansenz.mp3" preload="auto" loop="loop"></audio>
-    <audio id="bgmHizen" src="audios/ost/hizen.mp3" preload="auto" loop="loop"></audio>
-    <audio id="bgmNadir" src="audios/ost/nadir.mp3" preload="auto" loop="loop"></audio>
+    <audio id="sfxClick" src="../audios/sfxClick.wav" preload="auto"></audio>
+    <audio id="sfxLink" src="../audios/sfxLink.wav" preload="auto"></audio>
+    <audio id="sfxPageClose" src="../audios/sfxPageClose.wav" preload="auto"></audio>
+    <audio id="sfxPageOpen" src="../audios/sfxPageOpen.wav" preload="auto"></audio>
+    <audio id="sfxSwap" src="../audios/sfxSwap.wav" preload="auto"></audio>
+    <audio id="sfxWarp" src="../audios/sfxWarp.wav" preload="auto"></audio>
+    <audio id="bgmFyberverse" src="../audios/ost/fyberverse.mp3" preload="auto" loop="loop"></audio>
+    <audio id="bgmDeltadim" src="../audios/ost/deltadim.mp3" preload="auto" loop="loop"></audio>
+    <audio id="bgmFloriverse" src="../audios/ost/floriverse.mp3" preload="auto" loop="loop"></audio>
+    <audio id="bgmDigirel" src="../audios/ost/digirel.mp3" preload="auto" loop="loop"></audio>
+    <audio id="bgmNansenz" src="../audios/ost/nansenz.mp3" preload="auto" loop="loop"></audio>
+    <audio id="bgmHizen" src="../audios/ost/hizen.mp3" preload="auto" loop="loop"></audio>
+    <audio id="bgmNadir" src="../audios/ost/nadir.mp3" preload="auto" loop="loop"></audio>
     <script src="data.js"></script>
-    <script src="card-scripts.js"></script>
-    <script src="card-detail-scripts.js"></script>
+    <script src="../card-scripts.js"></script>
+    <script src="../card-detail-scripts.js"></script>
     <script src="splashtext.js"></script>
-    <script src="ticker.js"></script>
-    <script src="main.js"></script>
+    <script src="../ticker.js"></script>
+    <script src="../main.js"></script>
 </body>
 
+
 </html>
+
