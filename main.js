@@ -1964,6 +1964,11 @@ window.addEventListener('load', async () => {
         setLayoutViz(UIPanelBottom, true);
         initMainMenu();
         appLoaded = true;
+
+        // load any URL parameters after menu is initialized
+        await loadAndPopstateHandler();
+        pickSplash();
+
         if (!navigator.connection?.saveData) {
             setLayoutViz(downloadingAssets, true);
             const loadingProgress = document.getElementById('loadingProgress');
