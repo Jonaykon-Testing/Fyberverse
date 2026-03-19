@@ -28,7 +28,7 @@ const MAIN_MENU_TITLE = 'Main Menu';
 const MAIN_MENU_SUBTITLE = 'Welcome to the Fyberverse!';
 const SIMPLE_MODE_MENU_LOGO_SCALE = 1.5;
 
-let ORBIT_FPS = 20;
+let ORBIT_FPS = 40;
 // Disable FPS limit on Safari to prevent flickering and stuttering
 if (/AppleWebKit/i.test(navigator.userAgent)) {
     ORBIT_FPS = Infinity;
@@ -58,6 +58,11 @@ function getCSSVar(name, parse = 'string') {
     if (parse === 'int') return parseInt(val) || 0;
     if (parse === 'float') return parseFloat(val) || 0;
     return val;
+}
+
+// set CSS variable value
+function setCSSVar(name, value) {
+    document.documentElement.style.setProperty(name, value);
 }
 
 // Detect mobile/tablet device
@@ -143,16 +148,33 @@ async function copyToClipboard(button, textbox) {
 let isDragging = false;
 let startX = 0, startY = 0;
 let currentX = 0, currentY = 0;
+let cameraFollowBtn = null;
 const parallaxFactor = -0.1;
 
 const transStyle = 'transition: filter var(--layout-transition-speed), transform 0.5s cubic-bezier(.2, .9, .2, 1), opacity 1000ms;'
 const transStyleSlow = 'transition: filter var(--layout-transition-speed), transform 1s cubic-bezier(.2, .9, .2, 1), opacity 1000ms;'
 
+setCSSVar('--menu-stage-scale-reset', getCSSVar('--menu-stage-scale'));
+
+// is wide screen?
+function checkWideScreen() {
+    if (SIMPLE_MODE) {
+        contentView.style.maxWidth = '100%';
+        contentView.style.margin = 0;
+        detailView.style.maxWidth = '100%';
+        detailView.style.margin = 0;
+        return false;
+    }
+    return getCSSVar('--offset-main-menu-on-open') != '0';
+}
+
 // handle menu ring transform when panning
-function setElTransform(el, x, y, transition = null) {
+let offsetMainMenu = false;
+function setElTransform(el, x, y, transition = null, offset = false) {
+    const isWideScreen = checkWideScreen();
     const scale = getCSSVar('--menu-stage-scale');
     el.style.transition = transition || el.style.transition;
-    el.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    el.style.transform = `translate(calc(${x}px ${offset && isWideScreen ? '+ ' + getCSSVar('--offset-main-menu-on-open') : ''}), ${y}px) scale(${scale})`;
 
     // update starfield parallax if present
     if (starfield) updateStarfieldParallax(el, x, y);
@@ -169,6 +191,23 @@ function updateStarfieldParallax(el, x, y) {
         layer.style.transform = `translate(${px}px, ${py}px)`;
     });
 };
+
+// toggle main menu offset on widescreen
+function toggleMainMenuOffset(bool) {
+    const isWideScreen = checkWideScreen();
+    if (!isWideScreen) return;
+    if (bool) {
+        offsetMainMenu = true;
+        // currentX = 0, currentY = 0;
+        setElTransform(mainMenu, currentX, currentY, null, offsetMainMenu);
+        return;
+    }
+
+    offsetMainMenu = false;
+    currentX = 0, currentY = 0;
+    setElTransform(mainMenu, currentX, currentY, null, offsetMainMenu);
+}
+
 
 function enableCameraControl(el) {
 
@@ -192,7 +231,8 @@ function enableCameraControl(el) {
         currentX = clientX - startX;
         currentY = clientY - startY;
         setButtonViz(centerBtn, true);
-        setElTransform(el, currentX, currentY, transStyle);
+        setElTransform(el, currentX, currentY, transStyle, offsetMainMenu);
+        resetCameraFollow()
     }
 
     // end drag
@@ -225,7 +265,7 @@ function enableCameraControl(el) {
         if (Math.abs(e.deltaX) < 100 && Math.abs(e.deltaY) < 100) {
             currentX -= e.deltaX * 1.5;
             currentY -= e.deltaY * 1.5;
-            setElTransform(el, currentX, currentY);
+            setElTransform(el, currentX, currentY, null, offsetMainMenu);
         }
     }, { passive: false });
 }
@@ -233,7 +273,9 @@ function enableCameraControl(el) {
 // handle snapping back camera to center
 function snapCameraToCenter(el) {
     currentX = 0; currentY = 0;
-    setElTransform(el, currentX, currentY, transStyleSlow);
+    offsetMainMenu = menuIsOpen;
+    if (checkWideScreen) resetCameraFollow();
+    setElTransform(el, currentX, currentY, transStyleSlow, offsetMainMenu);
     setTimeout(() => {
         starfield?.querySelectorAll('.star-layer').forEach(layer => layer.style.transition = '');
     }, 900);
@@ -241,8 +283,9 @@ function snapCameraToCenter(el) {
 }
 
 function resetMenuTransform() {
-    setElTransform(mainMenu, 0, 0);
+    setElTransform(mainMenu, 0, 0, null, offsetMainMenu);
     currentX = 0, currentY = 0;
+    blurMainMenu(menuIsOpen);
 }
 
 enableCameraControl(mainMenu);
@@ -429,6 +472,7 @@ function createMenuItemElements(menus, layer, orbitLayer, count, direction, phas
 let openSingle = false;
 function openMainMenuButton(btn, m) {
     animateExpander();
+    setCameraFollow(btn);
     if (m.labels && m.labels.length == 1) {
         openSingle = true;
         if (m.menuId === "random") { openRandom(); setButtonViz(rerollBtn, true); return; }
@@ -586,7 +630,12 @@ function orbitMenuLoop(t) {
             const s = (!menuIsOpen && !isDragging) ? calculateMenuScale(b, cursorPos) * b.dataset.scale : b.dataset.scale;
             applyMenuPos(b, s, r, omega, x0, y0);
 
+
         });
+
+        followCameraWithCurrentButton();
+        zoomCameraWithCurrentButton()
+        if (!checkWideScreen()) resetCameraFollow();
 
         positionOrbitRings(rings);
     }
@@ -594,8 +643,46 @@ function orbitMenuLoop(t) {
     requestAnimationFrame(orbitMenuLoop);
 }
 
+// set button for the camera to follow 
+function setCameraFollow(btn) {
+    cameraFollowBtn?.classList.remove('active');
+    cameraFollowBtn = btn;
+}
+
+// apply camera follow
+function followCameraWithCurrentButton() {
+    if (!checkWideScreen()) return;
+    if (!cameraFollowBtn) return;
+    currentX = -cameraFollowBtn.dataset.x * getCSSVar('--menu-stage-scale-zoom', 'float');
+    currentY = -cameraFollowBtn.dataset.y * getCSSVar('--menu-stage-scale-zoom', 'float');
+    setElTransform(mainMenu, currentX, currentY, null, offsetMainMenu);
+    setButtonViz(centerBtn, true);
+    cameraFollowBtn.classList.add('active');
+}
+
+// apply camera zoom if following a button
+function zoomCameraWithCurrentButton() {
+    if (!checkWideScreen()) return
+    if (!cameraFollowBtn) {
+        setCSSVar('--menu-stage-scale', getCSSVar('--menu-stage-scale-reset'));
+        return;
+    }
+    setCSSVar('--menu-stage-scale', getCSSVar('--menu-stage-scale-zoom'));
+}
+
+// reset camera follow
+function resetCameraFollow() {
+    setCameraFollow(null);
+    setCSSVar('--menu-stage-scale', getCSSVar('--menu-stage-scale-reset'));
+}
+
 // blur main menu
 function blurMainMenu(bool) {
+    if (checkWideScreen()) {
+        mainMenu.classList.remove('blur');
+        starfield.classList.remove('blur');
+        return;
+    }
     if (bool) {
         mainMenu.classList.add('blur');
         starfield.classList.add('blur');
@@ -753,6 +840,7 @@ function openMenu(menu, m) {
     setButtonViz(settingsBtn, false);
     setButtonViz(playBgmBtn, false);
     menuIsOpen = true;
+    toggleMainMenuOffset(true);
 
     const title = m.invisible ? m.title : m.title + copyLinkIcon;
     const subtitle = m.menuId.includes("nansenz") ? m.subtitle + `<div class="ticker-bar"><div class="ticker-text"></div></div>` : m.subtitle;
@@ -1640,6 +1728,7 @@ function openLogo() {
     if (SIMPLE_MODE) return openMenuById('index');
     openSingle = true;
     const [menu, card] = menuLogoRedirect.split(":");
+    if (checkWideScreen()) { currentX = 0; currentY = 0; resetCameraFollow(); }
     if (menu && card) {
         openCardById(menu, card);
         return;
@@ -1667,24 +1756,33 @@ function goBack() {
 
     // if detail view is open -> go back to content view
     if (layoutViz(detailView)) {
-        if (openFromReference) { openMenuById(openFromReference); openFromReference = null; return; }
+        if (openFromReference) { openMenuWithoutHistoryPush(openFromReference); openFromReference = null; return; }
         const m = getMenuData(currentMenu());
-        changeBackBtnText(m.parent && !openSingle ? getMenuData(m.parent).title : 'Close')
-        // detailViewContent.innerHTML = '';
+        changeBackBtnText(m.parent && !openSingle ? getMenuData(m.parent).title : 'Close');
         setLayoutViz(detailView, false);
         setLayoutViz(contentView, true);
-        setHistoryState(contentView.dataset.currentMenuId);
+
+        // update URL without adding another history entry
+        const menuId = contentView.dataset.currentMenuId;
+        if (menuId) history.replaceState({}, '', `?m=${menuId}`); else history.replaceState({}, '', window.location.pathname);
         return;
 
         // if content view is open
     } else if (layoutViz(contentView)) {
         const parentMenu = getMenuData(currentMenu()).parent;
         // if parent menu exists
-        if (parentMenu) { openMenuById(parentMenu); return; }
+        if (parentMenu) { openMenuWithoutHistoryPush(parentMenu); history.replaceState({}, '', `?m=${parentMenu}`); return; }
 
         // if no parent menu -> go back to main menu
         returnToMainMenu();
     }
+}
+
+// open menu but do not push the history
+function openMenuWithoutHistoryPush(menuId) {
+    ignoreHistoryPush = true;
+    openMenuById(menuId);
+    ignoreHistoryPush = false;
 }
 
 // return to main menu
@@ -1697,8 +1795,9 @@ function returnToMainMenu() {
     setButtonViz(settingsBtn, true);
     if (!bgmEnabled) setButtonViz(playBgmBtn, true);
     menuIsOpen = false;
+    if (checkWideScreen()) snapCameraToCenter(mainMenu);
 
-    setHistoryState(null);
+    history.replaceState({}, '', window.location.pathname);
 }
 
 // internal link handler: <a data-open-card="q:id">
@@ -1724,13 +1823,15 @@ document.addEventListener('click', (e) => {
 // URL PARAMS ON LOAD
 // --------------------------
 
+// history management helpers
+let ignoreHistoryPush = false; // when true, setHistoryState does nothing
+
 // set the history state by rewriting the URL parameters
 function setHistoryState(menuId, cardId = null) {
-    if (!menuId) {
-        history.pushState({}, '', window.location.pathname);
-        return;
-    }
-    history.pushState({}, '', `?m=${menuId}${cardId ? `&i=${cardId}` : ''}`);
+    if (ignoreHistoryPush) return;
+    const url = !menuId ? window.location.pathname
+        : `?m=${menuId}${cardId ? `&i=${cardId}` : ''}`;
+    history.pushState({}, '', url);
 }
 
 // wait for a card element to appear in the content grid (used for URL param loading)
@@ -1752,16 +1853,35 @@ async function loadAndPopstateHandler() {
     const card = params.get('i');
 
     const targetMenu = menuItems.find(m => m.menuId === menu);
-    if (!targetMenu) {
-        returnToMainMenu(); return;
-    };
-
+    if (!targetMenu) { returnToMainMenu(); return; };
+    
+    // when responding to a popstate event we do *not* want to push another history entry,
+    // otherwise the browser back button never actually moves back.  Instead we temporarily
+    // ignore history pushes while opening the requested menu/card and then restore the flag.
+    ignoreHistoryPush = true;
+    
     openMenuById(targetMenu.menuId);
     if (card && targetMenu) {
         const cardEl = await waitForCard(card, 2000, 40);
         if (cardEl) openCard(cardEl, getCardData(menu, card));
-    }
+    } else openSingle = false;
+    ignoreHistoryPush = false;
 }
+
+
+
+
+// --------------------------
+// KEYBINDS
+// --------------------------
+document.addEventListener("keydown", (e) => {
+    const ae = document.activeElement;
+    const inInput = ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA' || ae.tagName === 'SELECT' || ae.isContentEditable);
+    if (inInput) return;
+    if (e.key === ' ') openSearchBox();
+    if (e.key === 'Escape') goBack();
+    if (e.key === 'c') snapCameraToCenter(mainMenu);
+})
 
 
 
@@ -1771,8 +1891,7 @@ async function loadAndPopstateHandler() {
 // INIT
 // --------------------------
 
-// listen to window load and popstate
-window.addEventListener('load', async () => { loadAndPopstateHandler(); pickSplash(); });
+// listen to popstate
 window.addEventListener('popstate', async () => { loadAndPopstateHandler(); })
 
 // initialize card data before anything else
@@ -1857,4 +1976,3 @@ window.addEventListener('load', async () => {
     })
 
 });
-

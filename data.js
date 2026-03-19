@@ -3,8 +3,8 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'February 25th, 2026';
-const version = '1.0.3';
+const lastUpdated = 'March 2nd, 2026';
+const version = '1.0.7';
 
 // menu logo redirection
 menuLogoRedirect = 'info:artifyber';
@@ -5444,7 +5444,6 @@ let menuItems = [
                         ESC = Go back<br>
                         SPACE = Open search<br>
                         C = Center view<br>
-                        H = Hide UIs<br>
                 `,
                 unclickable: true,
                 detail:
@@ -5491,87 +5490,10 @@ let menuItems = [
                 linkId: 'menuTemplate',
                 banner: true,
             },
-            {
-                linkId: 'loopTest',
-                banner: true,
-            },
-            {
-                linkId: 'infiniteTest1',
-                banner: true,
-            }
         ]
     },
 
     // Misc
-    {
-        menuId: 'loopTest',
-        title: 'loopTest',
-        color: 'var(--color-15)',
-        hidden: true,
-        invisible: true,
-        labels: [
-            {
-                cardId: 'testloop1',
-                title: 'testloop1',
-                subtitle: '',
-                detail:
-                    `<a data-open-card="loopTest:testloop2">testloop2</a>`,
-                image: 'images/temp2.png'
-            },
-            {
-                cardId: 'testloop2',
-                title: 'testloop2',
-                subtitle: '',
-                detail:
-                    `<a data-open-card="loopTest:testloop1">testloop1</a>`,
-                image: 'images/temp.png'
-            },
-        ]
-    },
-    {
-        menuId: 'infiniteTest1',
-        title: 'Softlock!!!',
-        color: 'var(--color-4)',
-        hidden: true,
-        invisible: true,
-        parent: 'infiniteTest2',
-        labels: [
-            {
-                cardId: 'urstucklol',
-                title: 'ur stuck lol',
-                subtitle: '',
-                detail: `lol`,
-            },
-            {
-                cardId: 'urstucklol2',
-                title: '<h1 style="font-size:100px">:3</h1>',
-                subtitle: '',
-                detail: `lol`,
-            },
-        ]
-    },
-    {
-        menuId: 'infiniteTest2',
-        title: 'Softlock!!!',
-        color: 'var(--color-4)',
-        hidden: true,
-        invisible: true,
-        parent: 'infiniteTest1',
-        labels: [
-            {
-                cardId: 'urstucklol',
-                title: '<h1 style="font-size:100px">:3</h1>',
-                subtitle: '',
-                detail: `lol`,
-            },
-            {
-                cardId: 'urstucklol2',
-                title: 'ur stuck lol',
-                subtitle: '',
-                detail: `lol`,
-            },
-        ]
-    },
     {
         title: 'Whitespace',
         menuId: 'yolkspocketdimension',
