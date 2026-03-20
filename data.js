@@ -281,6 +281,34 @@ let menuItems = [
     -------------------------- */
 
     {
+        title: 'Artineko',
+        menuId: 'artineko',
+        hidden: true,
+        labels: [
+            {
+                cardId: 'sprinkles',
+                title: 'Sprinkles',
+                subtitle: '',
+                detail: '',
+                hidden: "true",
+
+                isCharacter: true,
+                cSpecies: 'Cat',
+                cPronouns: 'She',
+                cGender: 'Female',
+                cSexuality: 'Aroace',
+                cNicknames: '',
+                cAddOns: '',
+                cReference: '',
+                cGallery: [
+                    'images/c/sprinkles-c.png',
+                    'images/c/sprinkles-c2.png',
+                ],
+                cRelations: [],
+            },
+        ]
+    },
+    {
         // Deltadim
         title: 'Deltadim',
         menuId: 'deltadim',
@@ -622,6 +650,10 @@ let menuItems = [
                     {
                         cardId: 'deltadim-chromasia:artimouse',
                         relation: 'Younger Sister'
+                    },
+                    {
+                        cardId: 'artineko:sprinkles',
+                        relation: 'Fursona'
                     },
                 ],
 
