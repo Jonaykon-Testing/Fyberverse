@@ -3186,6 +3186,18 @@ let menuItems = [
                 image: 'images/flories/fvd-stell-a.png'
             },
             {
+                cardId: 'fvdNully',
+                title: 'Nully',
+                subtitle: '',
+                isCharacter: true,
+                cSpecies: ' ',
+                cPronouns: ' ',
+                cGender: ' ',
+                cReference: 'images/flories/fvd-nully.png',
+                detail: '',
+                image: 'images/flories/fvd-nully.png'
+            },
+            {
                 cardId: 'fvdDatum',
                 title: 'Datum',
                 subtitle: '',
