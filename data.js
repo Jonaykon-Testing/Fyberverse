@@ -1466,6 +1466,24 @@ let menuItems = [
                 image: 'images/i/nuki-i.png',
             },
             {
+                cardId: 'ara',
+                title: 'Ara',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                cSpecies: 'Cat',
+                cPronouns: 'He',
+                cGender: 'Male',
+                cSexuality: 'Heterosexual',
+                cNicknames: '',
+                cAddOns: '',
+                cReference: 'images/r/ara-r.png',
+                cGallery: [],
+
+                image: 'images/i/ara-i.png',
+            },
+            {
                 cardId: 'sawo',
                 title: 'Sawo',
                 subtitle: '',
