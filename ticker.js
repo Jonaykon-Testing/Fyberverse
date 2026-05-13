@@ -102,10 +102,10 @@ async function startTicker(container, filePath, speed = 100) {
     const distance = textWidth + containerWidth;
     const duration = Math.max(distance / speed, 5); // Minimum 5 seconds
 
-    textElem.style.transition = 'none';
+    textElem.style.setProperty('transition', 'none');
     textElem.style.transform = `translateX(${containerWidth}px)`;
     textElem.offsetHeight;
-    textElem.style.transition = `transform ${duration}s linear`;
+    textElem.style.setProperty('transition', `transform ${duration}s linear`, 'important');
     textElem.style.transform = `translateX(-${textWidth}px)`;
 
     // Schedule next message
