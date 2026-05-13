@@ -200,9 +200,9 @@ splashLines = [
     `<div style="font-size:20px; filter: blur(0.12rem)">got your glasses</div>`,
     "seriousartifybernews",
     "A mish-mash of whatever!",
-    `<b style="font-size:25px; font-family: 'Genotheta', 'Righteous', 'Ubuntu', verdana, sans-serif;">Multiliŋual!</b>`,
-    `<b style="font-size:20px; font-family: 'starstroke', 'Righteous', 'Ubuntu', verdana, sans-serif;">Cryptical</b>`,
-    `<b style="font-size:25px; font-family: 'Genotheta', 'Righteous', 'Ubuntu', verdana, sans-serif;">.///.</b>`,
+    `<b style="font-size:25px; font-family: 'Genotheta', 'Main', 'Ubuntu', verdana, sans-serif;">Multiliŋual!</b>`,
+    `<b style="font-size:20px; font-family: 'starstroke', 'Main', 'Ubuntu', verdana, sans-serif;">Cryptical</b>`,
+    `<b style="font-size:25px; font-family: 'Genotheta', 'Main', 'Ubuntu', verdana, sans-serif;">.///.</b>`,
     `if you laugh you go straight to the void of nadir.`,
     `Powered by carrots!`,
     `im fybering it... im fybering it so good...`,
@@ -237,7 +237,10 @@ splashLines = [
     "kinda buggy srry",
     "sry4dalag :(",
     ":sweatsmile:",
-    "↗️ is having a crush with a router"
+    "↗️ is having a crush with a router",
+    "Now in Kotabaru!",
+    "pickSplash()",
+    "the font is called Righteous btw",
 ];
 
 totalSplash = splashLines.length;
