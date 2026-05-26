@@ -6,7 +6,7 @@
     font-family: 'Main';
     font-weight: 800;
     font-display: swap;
-    src: url(fonts/Righteous-Regular.woff) format('woff');
+    src: url(Righteous-Regular.woff) format('woff');
 }
 
 :root {
@@ -207,28 +207,28 @@
     font-family: 'Genotheta';
     font-weight: 800;
     font-display: swap;
-    src: url(fonts/GENOTHETAEX.ttf) format('truetype');
+    src: url(GENOTHETAEX.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'starstroke';
     font-weight: 800;
     font-display: swap;
-    src: url(fonts/starstroke.ttf) format('truetype');
+    src: url(starstroke.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'nadirune';
     font-weight: 800;
     font-display: swap;
-    src: url(fonts/NADIRUNE.ttf) format('truetype');
+    src: url(NADIRUNE.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'zenpen';
     font-weight: 800;
     font-display: swap;
-    src: url(fonts/zenpen.ttf) format('truetype');
+    src: url(zenpen.ttf) format('truetype');
 }
 
 
