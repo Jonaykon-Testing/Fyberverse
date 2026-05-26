@@ -3,7 +3,7 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'May 23rd, 2026';
+const lastUpdated = 'May 25th, 2026';
 const version = '1.2.1';
 
 // menu logo redirection
