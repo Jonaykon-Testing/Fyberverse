@@ -3,7 +3,7 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'May 13th, 2026';
+const lastUpdated = 'May 25th, 2026';
 const version = '1.2.1';
 
 // menu logo redirection
@@ -1301,6 +1301,7 @@ let menuItems = [
                 extra: '',
                 refsheet: '',
                 gallery: [
+                    'images/c/mist-c3.png',
                     'images/c/mist-c.png',
                     'images/c/mist-c2.png',
                 ],
@@ -1453,6 +1454,7 @@ let menuItems = [
                 refsheet: 'images/r/rai-r.png',
                 gallery: [
                     'images/c/rai-c.png',
+                    'images/c/rai-c3.png',
                     'images/c/rai-c2.png',
                 ],
                 relatives: [
@@ -2072,6 +2074,7 @@ let menuItems = [
                 extra: '',
                 refsheet: '',
                 gallery: [
+                    'images/c/artiproto-c2.png',
                     'images/c/artiproto-c.png',
                 ],
 
@@ -6680,6 +6683,7 @@ let menuItems = [
                 gallery: [
                     "images/fyberhappy.png",
                     "images/c/artifyber-c.png",
+                    "images/c/artifyber-c2.png",
                 ],
                 image: 'images/temp3.png'
             },
