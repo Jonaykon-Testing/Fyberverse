@@ -3,12 +3,11 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'May 25th, 2026';
-const version = '1.2.1';
+const lastUpdated = 'May 29th, 2026';
+const version = '1.2.1.1';
 
 // menu logo redirection
 menuLogoRedirect = 'info';
-
 
 
 // orbitData attributes:

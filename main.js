@@ -47,13 +47,10 @@ let LOW_ANIMATION_MODE = false;
 // --------------------------
 // UTILS
 // --------------------------
-
-// Utility helpers
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-// get CSS variable value
 function getCSSVar(name, parse = 'string') {
     const val = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     if (parse === 'int') return parseInt(val) || 0;
@@ -61,7 +58,6 @@ function getCSSVar(name, parse = 'string') {
     return val;
 }
 
-// set CSS variable value
 function setCSSVar(name, value) {
     document.documentElement.style.setProperty(name, value);
 }
@@ -73,7 +69,6 @@ window.mobileAndTabletCheck = function () {
     return check;
 };
 
-// set layout visibility
 function setLayoutViz(layout, viz) {
     if (viz) {
         layout.classList.remove('hidden');
@@ -82,35 +77,29 @@ function setLayoutViz(layout, viz) {
     layout.classList.add('hidden');
 }
 
-// get layout visibility
 function layoutViz(layout) {
     return !layout.classList.contains('hidden');
 }
 
-// set button visibility
 function setButtonViz(button, viz) {
     button.classList.toggle('ui-hide', !viz);
 }
 
-// get menu data from menuItems by id
 function getMenuData(menuId) {
     const menu = menuItems.find(m => m.menuId === menuId);
     if (!menu) return console.warn(`Menu with id "${menuId}" not found.`);
     return menu;
 }
 
-// get card data from menuItems by ids
 function getCardData(menuId, cardId) {
     const menu = getMenuData(menuId);
     return menu ? menu.cards.find(c => c.cardId === cardId) : null;
 }
 
-// change back button text content
 function changeBackBtnText(text = "Back") {
     backBtn.querySelector('span').textContent = text;
 }
 
-// copy to clipboard button function
 async function copyToClipboard(button, textbox) {
     try {
         await navigator.clipboard.writeText(textbox.value);
@@ -136,7 +125,6 @@ async function copyToClipboard(button, textbox) {
     }
 }
 
-// extract image urls from html string
 function extractImagesFromHTML(html) {
     const regex = /<img[^>]+src="([^"]+)"/g;
     let match;
@@ -153,8 +141,6 @@ function isEmojiOnly(str) {
   return emojiRegex.test(stringToTest) && Number.isNaN(Number(stringToTest));
 }
 
-
-// tween helper
 function tweenOut(start, target, speed, onUpdate) {
     let value = start;
     let last = performance.now();
@@ -235,7 +221,6 @@ const UI_STATES = {
     }
 };
 
-// function to apply UI state
 function applyUIState(stateName) {
     const state = UI_STATES[stateName];
     if (!state) return;
@@ -264,7 +249,7 @@ function applyUIState(stateName) {
 // MAIN MENU
 // --------------------------
 
-// copy link icon
+// copy link
 const copyLinkIcon = `
     <span class="copy-link" title="Copy shareable link">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -279,7 +264,6 @@ const copiedLinkIcon = `
     </svg>
 `
 
-// copy link functionality
 function copyLinkHandler(layout, menuId, cardId = null) {
     let shareURL = !eFolder ? `${location.origin}${location.pathname}?m=${menuId}` : `${location.origin}${location.pathname}${eFolder}/${menuId}`;
     if (cardId) shareURL = !eFolder ? `${location.origin}${location.pathname}?m=${menuId}&i=${cardId}` : `${location.origin}${location.pathname}${eFolder}/${menuId}/${cardId}`;
@@ -298,7 +282,8 @@ function copyLinkHandler(layout, menuId, cardId = null) {
     });
 }
 
-// blur main menu
+
+
 function blurMainMenu(bool) {
     if (bool) {
         mainMenu.classList.add('blur');
@@ -314,8 +299,6 @@ let openSingle = false;
 // --------------------------
 // SIMPLE MODE
 // --------------------------
-
-// push categorized menus
 function simpleModePushMenus(menus, m, banner = false) {
     menus.push({
         linkId: m.menuId,
@@ -324,8 +307,6 @@ function simpleModePushMenus(menus, m, banner = false) {
     });
     m.isInMenu = true;
 }
-
-// separate menus
 function simpleModeSeparateMenus(menus, title, excerpt = null) {
     t = '<span style="border-left: 6px solid var(--white); padding-right: 8px"></span>' + title;
     e = excerpt ? '<span style="border-left: 6px solid var(--white); padding-right: 8px"></span>' + excerpt : '';
@@ -334,8 +315,6 @@ function simpleModeSeparateMenus(menus, title, excerpt = null) {
         subtitle: e
     });
 }
-
-// handle main menu content
 function simpleModeCreateMenus(menus, menuMatches) {
     orbitData.forEach(o => {
         let separateOnce = false;
@@ -355,14 +334,9 @@ function simpleModeCreateMenus(menus, menuMatches) {
         };
     });
 }
-
-// initialize simple mode
 function initSimpleMode() {
-
-    // give parent data to each menu
     menuItems.forEach(m => { if (!m.parent) m.parent = 'index'; });
 
-    // create main menu
     let menus = [];
     let menuMatches = menuItems.filter(menu => (!(menu.invisible || menu.hidden || menu.menuId == "logoHitbox")));
 
@@ -379,8 +353,6 @@ function initSimpleMode() {
     }
 
     if (menuMatches.length > 0) simpleModeCreateMenus(menus, menuMatches);
-
-    // main menu data
     const index = {
         menuId: "index",
         invisible: true,
@@ -446,8 +418,6 @@ function toggleViewMode() {
 // --------------------------
 // CONTENT VIEW
 // --------------------------
-
-// set and get current menu id
 function setCurrentMenu(id) { contentView.dataset.currentMenuId = id; }
 function currentMenu() { return contentView.dataset.currentMenuId; }
 
@@ -490,16 +460,14 @@ function openMenu(menu, m) {
         const newBgm = menuToBgm[rootId];
 
         if (silentMenus.has(rootId)) {
-            // Menus that are set to be silent
             fadeVolume(bgm[currentBgm], 0);
+
         } else if (newBgm && newBgm !== currentBgm) {
-            // Menus with new BGM
             fadeVolume(bgm[currentBgm], 0);
             fadeVolume(bgm[newBgm], 1);
-
             currentBgm = newBgm;
+
         } else if (!newBgm) {
-            // Menus with no specific BGM = return to fyberverse
             fadeVolume(bgm[currentBgm], 0);
             fadeVolume(bgm.fyberverse, 1);
             currentBgm = "fyberverse";
@@ -507,10 +475,8 @@ function openMenu(menu, m) {
     }
 
     playSound('sfxSwap', SFX_SWAP_VOL);
-
     renderContentGrid(m);
     currentM = m;
-
     setHistoryState(m.menuId);
 }
 
@@ -518,7 +484,15 @@ function openMenu(menu, m) {
 
 // ------ character randomizer -------
 
-// get all characters
+const excludeFromRandomList = ['random', 'menuTemplate', 'floriverse'];
+function excludeFromRandom(menuId) {
+    let allow = true;
+    excludeFromRandomList.forEach(id => {
+        if (menuId.includes(id)) allow = false;
+    });
+    return !allow;
+}
+
 let characters = [];
 let nextCharacter = null;
 function getAllCharacters() {
@@ -526,14 +500,13 @@ function getAllCharacters() {
     menuItems.forEach(menu => {
         if (!menu.cards) return;
         if (menu.menuId === 'random') return;
-        if (menu.menuId.includes('floriverse')) return;
+        if (excludeFromRandom(menu.menuId)) return;
         menu.cards.forEach(card => { if (card.cardId && card.isCharacter) characters.push({ menu, card }); });
     });
     nextCharacter = randomNoRepeats(characters);
     return characters;
 }
 
-// ensure no repetition
 function randomNoRepeats(array) {
     let copy = array.slice();
     return function () {
@@ -597,7 +570,6 @@ function referenceCardBehavior(card, c) {
     const [menuRefId, cardRefId] = c.reference.split(':');
     const isMenu = !cardRefId;
 
-    // if the referenced link is just a menu
     if (isMenu) {
         const r = {};
         r.linkId = getMenuData(menuRefId).menuId;
@@ -605,25 +577,15 @@ function referenceCardBehavior(card, c) {
         return;
     }
 
-    // otherwise, if card id is stated
     const r = getCardData(menuRefId, cardRefId);
-
-    // if invalid
     if (!r) {
         card.style.display = "none";
         return;
     }
 
-    // if override dataset is given, well... override it
     overrideCardData(card, r)
-
-    // set dataset attributes
     setCardAttributes(card, r);
-
-    // special cards
     if (card.dataset.isMenu) { menuCardBehavior(card, r); return; }
-
-    // regular cards
     defaultCardBehavior(card, r)
 }
 
@@ -693,7 +655,6 @@ function setCardHTML(card, c, r = null) {
     }
 
     if (card.dataset.caption) html = `<div class="caption">${card.dataset.caption}</div>` + html;
-
     card.innerHTML = html;
 }
 
@@ -759,22 +720,14 @@ function renderContentGrid(m, animate = true) {
         cardArray.push(card);
         i++;
 
-        // remove data override
         overrideCardData(card, c, false);
-
-        // set dataset attributes
         setCardAttributes(card, c);
-
         frag.appendChild(card);
 
-        // special cards
         if (card.dataset.isMenu) { menuCardBehavior(card, c); return; }
         if (card.dataset.isReference) { referenceCardBehavior(card, c); return; }
-
-        // separators
         if (!c.cardId) { card.dataset.isSeparator = 'true'; separatorBehavior(card, c); return; }
 
-        // regular cards
         defaultCardBehavior(card, c)
     });
     contentViewGrid.appendChild(frag);
@@ -843,7 +796,6 @@ function openCard(card, c) {
     active.classList.add('active');
     delete active.dataset.isBanner;
     delete active.dataset.isSemiBanner;
-    // remove data override
     overrideCardData(active, c, false);
 
     active.innerHTML += `<div class="copy-link-active-card-wrapper">${copyLinkIcon}</div>`
@@ -1043,13 +995,11 @@ function handleDetailViewTabs(c, open = null) {
     const btns = tabsContainer.querySelectorAll('button.tab');
     const secs = detailViewContent.querySelectorAll('.detail-section');
 
-    // function to set a tab button as active
     function setActive(button) {
         btns.forEach(b => b.classList.remove('active'));
         if (button) button.classList.add('active');
     }
 
-    // funtion to show the section
     function showSection(section) {
         secs.forEach(s => { if (!s) return; s.classList.add('remove'); });
         if (section) {
@@ -1065,7 +1015,6 @@ function handleDetailViewTabs(c, open = null) {
         }
     }
 
-    // funciton to activate a tab
     function activateTab(index) {
         const b = btns[index];
         const s = secs[index];
@@ -1080,15 +1029,12 @@ function handleDetailViewTabs(c, open = null) {
         setHistoryState(c.cardParentId, c.cardId, sName);
     }
 
-    // show main by default
     activateTab(0);
 
-    // handle tab clicking
     btns.forEach((b, i) => {
         b.addEventListener('click', () => activateTab(i));
     });
 
-    // open param
     if (open) {
         btns.forEach((_, i) => {
             const s = secs[i];
@@ -1309,9 +1255,7 @@ function fadeVolume(audio, t, speed = 0.02) {
     const target = t * BGM_MASTER_VOL;
     if (!audio) return;
     clearInterval(audio._fadeInterval);
-
-    // clamp speed to prevent overshooting
-    const effectiveSpeed = Math.min(speed, 1); // Cap at 0.1 max
+    const effectiveSpeed = Math.min(speed, 1);
 
     audio._fadeInterval = setInterval(() => {
         const currentVol = audio.volume;
@@ -1383,7 +1327,6 @@ function stripHTML(html) {
     return html.replace(/<[^>]+>/g, '');
 }
 
-// create search menu first
 function createSearchMenu(title, subtitle, cards = []) {
     let search = {};
     const searchI = menuItems.findIndex(m => m.menuId === "search")
@@ -1399,22 +1342,17 @@ function createSearchMenu(title, subtitle, cards = []) {
     return menuItems.push(search)
 }
 
-// find cards
 function findCards(q, searchType) {
     results = {};
-
     menuItems.forEach(menu => {
         if (menu.invisible) return false;
         if (!menu.cards) return false;
-
         const matches = cardFilter(menu, q, searchType);
         if (matches.length > 0) results[menu.menuId] = { menu, cards: matches }
     });
-
     return results;
 }
 
-// filter cards
 function cardFilter(menu, q, searchType = null) {
     return menu.cards.filter(card => {
         if (!card.cardId) return false;
@@ -1431,7 +1369,6 @@ function cardFilter(menu, q, searchType = null) {
     });
 }
 
-// find menus
 function findMenus(q, searchType = null) {
     let results = menuItems.filter(menu => {
         if (menu.invisible) return false;
@@ -1440,11 +1377,9 @@ function findMenus(q, searchType = null) {
         if (searchType === "oc") return false;
         return (menu.title && menu.title.toLowerCase().includes(q)) || (menu.subtitle && menu.subtitle.toLowerCase().includes(q));
     });
-
     return results;
 }
 
-// push cards into result
 function pushCards(cardFound) {
     const results = [];
     let resultsCounter = 0;
@@ -1453,11 +1388,9 @@ function pushCards(cardFound) {
         results.push({ title: `<span style="border-left: 6px solid var(--white); padding-right: 8px"></span>Results from <a data-open-card="${menu.menuId}">${menu.title}</a>` });
         cards.forEach(c => { results.push({ ...c }); resultsCounter++; });
     });
-
     return { results, resultsCounter };
 }
 
-// push cards into result
 function pushMenus(menuFound) {
     const results = [];
     let resultsCounter = 0;
@@ -1466,12 +1399,10 @@ function pushMenus(menuFound) {
         results.push({ linkId: menu.menuId, semibanner: true });
         resultsCounter++;
     });
-
     if (resultsCounter > 0) results.unshift({ title: `<span style="border-left: 6px solid var(--white); padding-right: 8px"></span>Matching menus found:` });
     return { results, resultsCounter };
 }
 
-// show search menu
 function showSearch(query, results, resultsCounter) {
     const searchTitle = `Results for "${query}"`;
     const searchSubtitle = `Found ${resultsCounter} item(s)`;
@@ -1556,7 +1487,6 @@ function initSearchUI() {
 }
 
 function openSearchBox() { searchBox.showModal(); initSearchUI(); }
-
 const searchBtn = document.getElementById('searchBtn')
 searchBtn?.addEventListener('click', () => { openSearchBox(); });
 searchBox.addEventListener('close', () => { if (searchText.value.trim() !== '') search(); });
@@ -1694,17 +1624,13 @@ settingsBtn.addEventListener('click', () => { openMenuById('settings') });
 
 // back button
 backBtn.addEventListener('click', () => { goBack(); });
-
-// back button behavior
 function goBack() {
-    // was the card opened from single-card menu?
     if (openSingle) {
         openSingle = false;
         returnToMainMenu();
         return;
     }
 
-    // if detail view is open -> go back to content view
     if (layoutViz(detailView)) {
         if (openFromReference) { openMenuWithoutHistoryPush(openFromReference); openFromReference = null; return; }
         const m = getMenuData(currentMenu());
@@ -1712,18 +1638,13 @@ function goBack() {
         setLayoutViz(detailView, false);
         setLayoutViz(contentView, true);
 
-        // update URL without adding another history entry
         const menuId = contentView.dataset.currentMenuId;
         if (menuId) history.replaceState({}, '', `?m=${menuId}`); else history.replaceState({}, '', window.location.pathname);
         return;
 
-        // if content view is open
     } else if (layoutViz(contentView)) {
         const parentMenu = getMenuData(currentMenu()).parent;
-        // if parent menu exists
         if (parentMenu) { openMenuWithoutHistoryPush(parentMenu); history.replaceState({}, '', `?m=${parentMenu}`); return; }
-
-        // if no parent menu -> go back to main menu
         returnToMainMenu();
     }
 }
@@ -1758,7 +1679,6 @@ document.addEventListener('click', (e) => {
     const link = e.target.closest('a[data-open-card]');
     if (!link) return;
     e.preventDefault();
-
     const ref = link.dataset.openCard.trim();
     const [menuCode, cardKey] = ref.split(':');
     if (menuCode && cardKey) {
@@ -1857,7 +1777,6 @@ document.addEventListener("keydown", (e) => {
 // INIT
 // --------------------------
 
-// listen to popstate
 window.addEventListener('popstate', async () => { loadAndPopstateHandler(); })
 
 // initialize card data before anything else
@@ -1875,7 +1794,6 @@ function initLayoutViz() {
     contentView.classList.add("no-transition");
     detailView.classList.add("no-transition");
     imageView.classList.add("no-transition");
-
     setLayoutViz(contentView, false);
     setLayoutViz(detailView, false);
     setLayoutViz(imageView, false);
