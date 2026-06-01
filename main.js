@@ -31,6 +31,7 @@ const mainMenuLogo = 'images/menu-logo.png';
 const SIMPLE_MODE_MENU_LOGO_SCALE = 1.5;
 
 function pickSplash() {
+    if (new Date().getMonth() == 5) return "Happy pride month!";
     const filtered = splashLines.filter(s => !s.includes('<') /* && s.length < 30 */);
     return filtered[Math.floor(Math.random() * filtered.length)];
 }

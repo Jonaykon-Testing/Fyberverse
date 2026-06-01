@@ -4,7 +4,7 @@
 
 // Metadata
 const lastUpdated = 'May 29th, 2026';
-const version = '1.2.1.1';
+const version = '1.2.1.2';
 
 // menu logo redirection
 menuLogoRedirect = 'info';
