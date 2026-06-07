@@ -3,8 +3,8 @@
 // --------------------------
 
 // Lazy loader base path
-const LAZY_BASE = 'https://cdn.jsdelivr.net/gh/blurplebun/blurplebun.github.io/';
-const LOCAL_MODE = 1; // if you don't use a cdn service to load images, just set this to true
+const LAZY_BASE = 'https://cdn.jsdelivr.net/gh/blurplebun/blurplebun.github.io@latest/';
+const LOCAL_MODE = true; // if you don't use a cdn service to load images, just set this to true
 
 // Sound control
 const INIT_MASTER_VOL = 1;
@@ -30,10 +30,10 @@ const MAIN_MENU_TEXT_OFFSET_Y = 90;
 const mainMenuLogo = 'images/menu-logo.png';
 const SIMPLE_MODE_MENU_LOGO_SCALE = 1.5;
 
-function pickSplash() {
-    if (new Date().getMonth() == 5) return "Happy pride month!";
-    const filtered = splashLines.filter(s => !s.includes('<') /* && s.length < 30 */);
-    return filtered[Math.floor(Math.random() * filtered.length)];
+let ORBIT_FPS = 40;
+// Disable FPS limit on Safari to prevent flickering and stuttering
+if (/AppleWebKit/i.test(navigator.userAgent)) {
+    ORBIT_FPS = Infinity;
 }
 
 // Links
@@ -1298,6 +1298,7 @@ document.addEventListener('click', (e) => {
 
 // play sfx
 function playSound(soundId, volume = 1) {
+    if (SFX_MASTER_VOL === 0) return;
     s = document.getElementById(soundId);
     if (!s) return;
     s.pause();
@@ -1807,6 +1808,19 @@ function resetLayoutTransition() {
     imageView.classList.remove("no-transition");
 }
 
+const assetsLoaded = [];
+let assetsProgress = 0;
+function preloadAssets(priority, assetsArray, onProgress) {
+    return Promise.all(
+        assetsArray.map(src =>
+            fetch(src, {priority}).then(() => {
+                assetsProgress++;
+                if (onProgress) onProgress(assetsProgress, assetsArray.length);
+            }).catch(() => {})
+        )
+    );
+}
+
 // disable most transitions if simple mode is activated
 if (SIMPLE_MODE) {
     contentView.classList.add("no-transition-at-all");
@@ -1833,18 +1847,42 @@ function preloadMenuIcons() {
 /* if (!SIMPLE_MODE) createStarfield(); */
 initCardData();
 initLayoutViz();
-preloadMenuIcons();
-
-setLayoutViz(UIPanelTop, false);
-setLayoutViz(UIPanelBottom, false);
 window.addEventListener('load', async () => {
-    setLayoutViz(loading, false);
-    setLayoutViz(UIPanelTop, true);
-    setLayoutViz(UIPanelBottom, true);
-    initMainMenu();
-    appLoaded = true;
+    const loadingText = document.getElementById('loadingText')
+    loadingText.innerText = `Loading main menu assets`;
+    preloadAssets("high", [
+        "icons/deltadim.png",
+        "icons/floriverse.png",
+        "icons/digirel.png",
+        "icons/nansenz.png",
+        "icons/hizen.png",
+        "icons/nadir.png",
+        "icons/dailyartplus.png",
+        "icons/converters.png",
+        "icons/oc-random.png",
+        "icons/info.png",
+        "icons/earth.png",
+        "icons/dollar.png"
+    ]).then(async () => {
+        setLayoutViz(loading, false);
+        setLayoutViz(UIPanelTop, true);
+        setLayoutViz(UIPanelBottom, true);
+        initMainMenu();
+        appLoaded = true;
 
-    // load any URL parameters after menu is initialized
-    await loadAndPopstateHandler();
-    /* pickSplash(); */
+        // load any URL parameters after menu is initialized
+        await loadAndPopstateHandler();
+        pickSplash();
+
+        if (!navigator.connection?.saveData) {
+            setLayoutViz(downloadingAssets, true);
+            const loadingProgress = document.getElementById('loadingProgress');
+            const data = await fetch('assets.json').then(res => res.json());
+            await preloadAssets("low", data, (loaded, total) => {
+                if (loadingProgress) loadingProgress.innerText = `Loading ${loaded} / ${total}`;
+            });
+            setLayoutViz(downloadingAssets, false);
+        }
+    })
+
 });

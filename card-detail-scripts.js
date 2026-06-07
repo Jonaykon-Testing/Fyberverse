@@ -2,9 +2,9 @@
     Converters
     -------------------------- */
 
-function converterHandler(card) {
+function converterHandler(label) {
     // Genotheta
-    if (card.cardId === 'genotheta') {
+    if (label.cardId === 'genotheta') {
         const genothetaInput = document.getElementById('genothetaInput');
         const genothetaOutput = document.getElementById('genothetaOutput');
         const genothetaOutputEx = document.getElementById('genothetaOutputEx');
@@ -75,7 +75,7 @@ function converterHandler(card) {
     }
 
     // Starstroke
-    if (card.cardId === 'starstroke') {
+    if (label.cardId === 'starstroke') {
         const starstrokeInput = document.getElementById('starstrokeInput');
         const starstrokeOutput = document.getElementById('starstrokeOutput');
 
@@ -104,7 +104,7 @@ function converterHandler(card) {
     }
 
     // Nadirune
-    if (card.cardId === 'nadirune') {
+    if (label.cardId === 'nadirune') {
         const nadiruneInput = document.getElementById('nadiruneInput');
         const nadiruneOutput = document.getElementById('nadiruneOutput');
 
@@ -133,7 +133,7 @@ function converterHandler(card) {
     }
 
     // Zenpen
-    if (card.cardId === 'zenpen') {
+    if (label.cardId === 'zenpen') {
         const zenpenInput = document.getElementById('zenpenInput');
         const zenpenOutput = document.getElementById('zenpenOutput');
 
@@ -159,6 +159,35 @@ function converterHandler(card) {
         // zenpen keyboard
         const zenpenKeys = $$('.zenpenKeys');
         createKeyboard(zenpenKeys, zenpenInputRev);
+    }
+
+    // Squaracters
+    if (label.cardId === 'squaracters') {
+        const squaractersInput = document.getElementById('squaractersInput');
+        const squaractersOutput = document.getElementById('squaractersOutput');
+
+        const squaractersInputRev = document.getElementById('squaractersInputRev');
+        const squaractersOutputRev = document.getElementById('squaractersOutputRev');
+
+        copySquaractersRevBtn.addEventListener('click', async () => { copyToClipboard(copySquaractersRevBtn, squaractersOutputRev); });
+
+        // latin to squaracters
+        squaractersInput.addEventListener('input', () => {
+            const input = squaractersInput.value;
+            const output = input;
+            squaractersOutput.value = output;
+        });
+
+        // squaracters to latin
+        squaractersInputRev.addEventListener('input', () => {
+            const input = squaractersInputRev.value;
+            const output = input;
+            squaractersOutputRev.value = output;
+        });
+
+        // squaracters keyboard
+        const squaractersKeys = $$('.squaractersKeys');
+        createKeyboard(squaractersKeys, squaractersInputRev);
     }
 }
 
@@ -210,6 +239,6 @@ function createKeyboard(keys, inputElement) {
 }
 
 // init card scripts
-function cardDetailScriptHandler(card) {
-    converterHandler(card);
+function cardDetailScriptHandler(label) {
+    converterHandler(label);
 }
