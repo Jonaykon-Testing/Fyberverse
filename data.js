@@ -789,6 +789,9 @@ let menuItems = [
                 linkId: 'deltadim-deltaspace',
             },
             {
+                linkId: 'deltadim-missing',
+            },
+            {
                 title: 'Pinned',
                 subtitle: 'You might be looking for these'
             },
@@ -2526,6 +2529,223 @@ let menuItems = [
                 gallery: [],
 
                 image: 'images/i/ichor-i.png',
+            },
+        ]
+    },
+    {
+        menuId: 'deltadim-missing',
+        title: 'Missing',
+        subtitle: 'Erased from the timeline',
+        image: 'images/missing.png',
+        color: '#BFBFBF',
+        parent: 'deltadim',
+        hidden: true,
+        cards: [
+            {
+                cardId: 'iafo',
+                title: 'I.A.F.O',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Cat',
+                pronouns: 'They/Them',
+                gender: 'Non-binary',
+                sexuality: 'Lesbian',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/iafo-i.png',
+            },
+            {
+                cardId: 'corinne',
+                title: 'Corinne',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Cat-robot',
+                pronouns: 'She/Him',
+                gender: 'Bigender',
+                sexuality: 'Lesbian',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/corinne-i.png',
+            },
+            {
+                cardId: 'neelo',
+                title: 'Neelo',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Lemon cat',
+                pronouns: 'He/Them',
+                gender: 'Male',
+                sexuality: 'Bisexual',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/neelo-i.png',
+            },
+            {
+                cardId: 'nala',
+                title: 'Nala',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Bunny',
+                pronouns: 'She/He/Any',
+                gender: 'Trans-female',
+                sexuality: 'Bisexual',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/nala-i.png',
+            },
+            {
+                cardId: 'ithi',
+                title: 'Ithi',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Robunny',
+                pronouns: 'She/Any',
+                gender: 'Female',
+                sexuality: 'Asexual',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/ithi-i.png',
+            },
+            {
+                cardId: 'yolk',
+                title: 'Yolk',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Macroscopic single-celled organism',
+                pronouns: 'They/She/ANy',
+                gender: 'Genderless',
+                sexuality: 'Aroace',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/yolk-i.png',
+            },
+            {
+                cardId: 'ashy',
+                title: 'Ashy',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Multispecies',
+                pronouns: 'She/Her',
+                gender: 'Female',
+                sexuality: 'Lesbian',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/ashy-i.png',
+            },
+            {
+                cardId: 'shirley',
+                title: 'Shirley',
+                subtitle: '',
+                detail: `
+                Shirley is an orange cat-fox hybrid with white fur on her ears, muzzle, chest, abdomen, and the tip of her tail. Her eyes are yellow and her pawpads and inner ears are orange.<br>
+                <br>
+                She lives with her boyfriend Rose, and works as a barista at a local cafe in Chromasia. She also loves gardening and taking care of pretty flowers.`,
+
+                isCharacter: true,
+                species: 'Cat + Fox',
+                pronouns: 'She',
+                gender: 'Female',
+                sexuality: 'Heterosexual',
+                aliases: 'Manda, Alamanda',
+                characterAttrs: {
+                    'Realm Origin': '<a data-open-card="deltadim-chromasia">Deltadim - Chromasia</a>',
+                },
+                extra: '',
+                refsheet: 'images/r/shirley-r.png',
+                gallery: [
+                    'images/c/shirley-c.png',
+                    'images/c/shirley-c2.png',
+                    'images/c/shirley-c3.png',
+                    'images/c/shirley-c4.png',
+                    'images/c/shirley-c5.png',
+                    'images/c/shirley-c6.png',
+                    'images/c/shirley-c7.png',
+                    'images/c/shirley-c8.png',
+                    'images/c/shirley-c9.png',
+                    'images/c/shirley-c10.png',
+                    'images/c/shirley-c11.png',
+                    'images/c/shirley-c12.png',
+                ],
+                relatives: [
+                    {
+                        cardId: 'deltadim-missing:rose',
+                        relation: 'Significant Other'
+                    },
+                ],
+
+                image: 'images/i/shirley-i.png',
+            },
+            {
+                cardId: 'rose',
+                title: 'Rose',
+                subtitle: '',
+                detail: `
+                Rose is a green fox with red fur covering his head and tail, and dark green neck fur. In fact, his color schemes and fur patterns look like a typical rose flower.<br>
+                <br>
+                Rose really likes the color pink. He can often be seen wearing pink sweaters and skirts or trousers. He doesn't mind being called cute or pretty despite being a male.<br>
+                <br>
+                He works as a farmer in Chromasia, growing various kinds of crops to sell at the local market.`,
+
+                isCharacter: true,
+                species: 'Fox',
+                pronouns: 'He/Any',
+                gender: 'Male',
+                sexuality: 'Heterosexual',
+                aliases: 'Rosey',
+                extra: '',
+                characterAttrs: {
+                    'Realm Origin': '<a data-open-card="deltadim-chromasia">Deltadim - Chromasia</a>',
+                },
+                refsheet: 'images/r/rose-r.png',
+                gallery: [
+                    'images/c/rose-c.png',
+                    'images/c/rose-c2.png',
+                    'images/c/rose-c3.png',
+                    'images/c/rose-c4.png',
+                ],
+                relatives: [
+                    {
+                        cardId: 'deltadim-missing:shirley',
+                        relation: 'Significant Other'
+                    },
+                ],
+
+                image: 'images/i/rose-i.png',
             },
         ]
     },
@@ -6275,8 +6495,7 @@ let menuItems = [
         ]
     },
 
-
-
+    // Orbit 3
     {
         title: 'Daily Art+',
         showTitle: true,
@@ -6322,7 +6541,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/GENOTHETAEX.ttf" target="_blank">Download Genotheta Font</a><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/GENOTHETAEX.ttf" target="_blank">Download Genotheta Font</a><br>
                     <h2>Latin to Genotheta</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6422,7 +6641,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/starstroke.ttf" target="_blank">Download Starstroke Font</a><br><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/starstroke.ttf" target="_blank">Download Starstroke Font</a><br><br>
                     <h2>Latin to Starstroke</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6488,7 +6707,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/NADIRUNE.ttf" target="_blank">Download NADIRUNE Font</a><br><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/NADIRUNE.ttf" target="_blank">Download NADIRUNE Font</a><br><br>
                     <h2>Latin to NADIRUNE</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6554,7 +6773,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/zenpen.ttf" target="_blank">Download Zenpen Font</a><br><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/zenpen.ttf" target="_blank">Download Zenpen Font</a><br><br>
                     <h2>Latin to Zenpen</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6625,7 +6844,94 @@ let menuItems = [
                     `,
                 image: 'icons/zenpen.png'
             },
+            {
+                cardId: 'squaracters',
+                title: 'Squaracters',
+                subtitle: 'Convert Latin to Squaracters',
+                semibanner: true,
+                detail:
+                    `
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/squaracters.ttf" target="_blank">Download Squaracters Font</a><br><br>
+                    <h2>Latin to Squaracters</h2>
+                    Latin input
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersInput" rows="4" style="width:100%;"></textarea>
+                    </div>
+                    <br>
+                    Squaracters output
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersOutput" rows="4" style="width:100%;" readonly></textarea>
+                    </div>
+
+                    <br><br><hr>
+
+                    <h2>Squaracters to Latin</h2>
+                    Squaracters input
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersInputRev" class="squaracters" rows="2" style="width:100%;" readonly></textarea>
+                    </div>
+                    <br>
+                    <button id="copySquaractersRevBtn" type="button">Copy</button> -  latin output<br>
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersOutputRev" rows="2" style="width:100%;" readonly></textarea>
+                    </div>
+                    <br>
+                    <div class="keyboardLayout" style="margin-top:10px;">
+                        <button type="button" class="keycap squaractersKeys" data-key="DEL">DEL</button>
+                        <button type="button" class="keycap squaractersKeys" data-key="CLR">CLR</button>
+                        <button type="button" class="keycap squaractersKeys" data-key=" ">SPACE</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="A">A</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="B">B</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="C">C</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="D">D</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="E">E</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="F">F</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="G">G</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="H">H</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="I">I</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="J">J</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="K">K</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="L">L</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="M">M</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="N">N</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="O">O</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="P">P</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="Q">Q</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="R">R</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="S">S</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="T">T</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="U">U</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="V">V</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="W">W</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="X">X</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="Y">Y</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="Z">Z</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="0">0</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="1">1</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="2">2</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="3">3</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="4">4</button>
+                    </div>
+                    `,
+                image: 'icons/squaracters.png'
+            },
         ]
+    },
+    {
+        // Random
+        title: 'Random Character',
+        menuId: 'random',
+        showTitle: true,
+        image: 'icons/oc-random.png',
+        color: 'var(--color-12)',
+        orbit: 3,
+        scale: 1.5,
+        invisible: true,
+        cards: [
+            {
+                cardId: 'random',
+            }
+        ],
     },
 
     // Orbit 4
@@ -6835,6 +7141,13 @@ let menuItems = [
                 image: 'icons/l-toyhouse.png'
             },
             {
+                cardId: 'kofi',
+                title: 'Ko-Fi',
+                subtitle: '',
+                url: 'https://ko-fi.com/artifyber',
+                image: 'icons/comm-kofi.png'
+            },
+            {
                 cardId: 'alts',
                 title: 'Alternates',
                 subtitle: 'All of my alternative accounts on various platforms',
@@ -6869,7 +7182,7 @@ let menuItems = [
         color: 'var(--color-11)',
         orbit: 4,
         scale: 1.5,
-        hidden: true,
+        hidden: false,
         cards: [
             {
                 cardId: 'kofi',
@@ -7051,22 +7364,6 @@ let menuItems = [
 
 
     {
-        // Random
-        title: 'Random Character',
-        menuId: 'random',
-        showTitle: true,
-        image: 'icons/oc-random.png',
-        color: 'var(--color-12)',
-        orbit: 3,
-        scale: 1.5,
-        invisible: true,
-        cards: [
-            {
-                cardId: 'random',
-            }
-        ],
-    },
-    {
         // Settings
         menuId: 'settings',
         title: 'Settings',
@@ -7125,8 +7422,7 @@ let menuItems = [
                 title: `Website Info`,
                 subtitle: `
                         <br>
-                        Updated: ${lastUpdated}<br>
-                        Version: ${version}<br>
+                        Based on version: ${version}<br>
                         <br>
                         <div style='color: color-mix(in srgb, var(--accentl) 75%, transparent)' id="totalCardsCounter"></div>
                         <div style='color: color-mix(in srgb, var(--accentl) 75%, transparent)' id="totalMenusCounter"></div>
@@ -7144,11 +7440,15 @@ let menuItems = [
                 title: `Credits`,
                 subtitle: `
                         <br>
-                        Developed by:<br>
+                        Created by:<br>
                         Artifyber<br>
                         <br>
-                        Special thanks:<br>
-                        Azka "Artist" Zavian
+                        Forked by:<br>
+                        Jonaykon<br>
+                        <br>
+                        <a href="https://fontstruct.com/fontstructions/show/2768650/squaracters">Squaracters font</a>:<br>
+                        Made by: <a href="https://fontstruct.com/fontstructors/2329103/maxy-dev">maxy_dev</a><br>
+                        Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
                 `,
                 unclickable: true,
                 banner: true,
@@ -7173,7 +7473,7 @@ let menuItems = [
         subtitle: '',
         image: '',
         color: 'var(--color-10)',
-        orbit: 127,
+        orbit: 10,
         scale: 0.5,
         invisible: true,
         cards: [
@@ -7190,7 +7490,7 @@ let menuItems = [
 ];
 
 // Beecat
-if (Math.floor(Math.random() * 333) == 0) {
+if (Math.floor(Math.random() * 1) == 0) {
     menuItems.forEach(menu => {
         if (menu.menuId == "info") {
             menu.cards.push({
