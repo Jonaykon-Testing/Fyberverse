@@ -231,6 +231,13 @@
     src: url(fonts/squaracters.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'squaracters';
+    font-weight: 800;
+    font-display: swap;
+    src: url(fonts/squaracters.ttf) format('truetype');
+}
+
 
 
 
