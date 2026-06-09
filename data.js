@@ -2544,7 +2544,7 @@ let menuItems = [
             {
                 cardId: 'iafo',
                 title: 'I.A.F.O',
-                subtitle: '',
+                subtitle: 'Im a Fuwwy OwO',
                 detail: '',
 
                 isCharacter: true,
