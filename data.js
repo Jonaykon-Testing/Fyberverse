@@ -814,6 +814,27 @@ let menuItems = [
                 image: 'images/i/vylanandilyna-i.png',
             },
             {
+                cardId: 'bunn',
+                title: 'Blobunnies',
+                subtitle: 'Species',
+                detail: `
+                Blobunny (Lepus Spheroformis, also known as "Bunn") is a fascinating species commonly found in Deltadim. This creature resembles a fluffy ball, allowing to roll and bounce with surprising agility.<br>
+                <br>
+                The Blobunny thrives in colonies ranging from 5 to 20 individuals. With their petite size, measuring a mere 5 inches, these squishy creatures are surely huggable and can provide comfort as a pet :3`,
+
+                isCharacter: true,
+                aliases: 'Bunn',
+                extra: '',
+                characterAttrs: {
+                    'Size': '5 inches (13cm)',
+                },
+                refsheet: 'images/r/bunn-r.png',
+                gallery: [],
+                relatives: [],
+
+                image: 'images/i/bunn-i.png',
+            },
+            {
                 title: 'Pinned',
                 subtitle: 'You might be looking for these'
             },
