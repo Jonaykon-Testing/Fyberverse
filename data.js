@@ -2615,6 +2615,9 @@ let menuItems = [
                 sexuality: 'Lesbian',
                 aliases: '',
                 extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 180',
+                },
                 refsheet: '',
                 gallery: [],
 
@@ -2633,6 +2636,9 @@ let menuItems = [
                 sexuality: 'Bisexual',
                 aliases: '',
                 extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 46',
+                },
                 refsheet: '',
                 gallery: [],
 
@@ -2651,6 +2657,9 @@ let menuItems = [
                 sexuality: 'Bisexual',
                 aliases: '',
                 extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 433',
+                },
                 refsheet: '',
                 gallery: [],
 
@@ -2669,6 +2678,9 @@ let menuItems = [
                 sexuality: 'Asexual',
                 aliases: '',
                 extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 158',
+                },
                 refsheet: '',
                 gallery: [],
 
@@ -2682,11 +2694,14 @@ let menuItems = [
 
                 isCharacter: true,
                 species: 'Macroscopic single-celled organism',
-                pronouns: 'They/She/ANy',
+                pronouns: 'They/She/Any',
                 gender: 'Genderless',
                 sexuality: 'Aroace',
                 aliases: '',
                 extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 282',
+                },
                 refsheet: '',
                 gallery: [],
 
@@ -2705,6 +2720,10 @@ let menuItems = [
                 sexuality: 'Lesbian',
                 aliases: '',
                 extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 666',
+                    'Missing since': 'Day 666',
+                },
                 refsheet: '',
                 gallery: [],
 
@@ -2726,6 +2745,8 @@ let menuItems = [
                 sexuality: 'Heterosexual',
                 aliases: 'Manda, Alamanda',
                 characterAttrs: {
+                    'Last seen': 'Day 752',
+                    'Missing since': 'Day 835',
                     'Realm Origin': '<a data-open-card="deltadim-chromasia">Deltadim - Chromasia</a>',
                 },
                 extra: '',
@@ -2772,6 +2793,8 @@ let menuItems = [
                 aliases: 'Rosey',
                 extra: '',
                 characterAttrs: {
+                    'Last seen': 'Day 698',
+                    'Missing since': 'Day 835',
                     'Realm Origin': '<a data-open-card="deltadim-chromasia">Deltadim - Chromasia</a>',
                 },
                 refsheet: 'images/r/rose-r.png',
@@ -7491,7 +7514,11 @@ let menuItems = [
                         <br>
                         <a href="https://fontstruct.com/fontstructions/show/2768650/squaracters">Squaracters font</a>:<br>
                         Made by: <a href="https://fontstruct.com/fontstructors/2329103/maxy-dev">maxy_dev</a><br>
-                        Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+                        Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><br>
+                        <br>
+                        Last seen dates compiled by: <br>
+                        Cleaner900<br>
+                        <a href="https://discord.com/channels/1375093197751062648/1485625814941962300/1486025935797878865">Source</a> (in <a href="https://discord.gg/Af4FHzw5bx">Muppie Hive</a> Discord server)
                 `,
                 unclickable: true,
                 banner: true,
