@@ -792,6 +792,28 @@ let menuItems = [
                 linkId: 'deltadim-missing',
             },
             {
+                cardId: 'vylanandilyna',
+                title: 'Vylan & Ilyna',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Cat',
+                pronouns: 'They/Any',
+                gender: 'Non-binary',
+                sexuality: 'Asexual (Vylan), Pansexual (Ilyna)',
+                flags: ['asexual', 'pansexual'],
+                aliases: '',
+                extra: `
+                    Conjoined twins
+                `,
+                refsheet: 'images/r/vylanandilyna-r.png',
+                gallery: [],
+                relatives: [],
+
+                image: 'images/i/vylanandilyna-i.png',
+            },
+            {
                 title: 'Pinned',
                 subtitle: 'You might be looking for these'
             },
