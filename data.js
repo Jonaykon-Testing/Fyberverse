@@ -2679,7 +2679,7 @@ let menuItems = [
                 aliases: '',
                 extra: '',
                 characterAttrs: {
-                    'Last seen': 'Day 158',
+                    'Last seen': 'Day 179',
                 },
                 refsheet: '',
                 gallery: [],
