@@ -2675,7 +2675,7 @@ let menuItems = [
                 species: 'Robunny',
                 pronouns: 'She/Any',
                 gender: 'Female',
-                sexuality: 'Asexual',
+                sexuality: 'Bisexual',
                 aliases: '',
                 extra: '',
                 characterAttrs: {
