@@ -617,7 +617,8 @@ hr {
 .content-view-html h4,
 .content-view-html h5,
 .content-view-html h6,
-.content-view-html code
+.content-view-html code,
+.content-view-html summary
 {
     color: var(--text-color);
 }
@@ -1091,9 +1092,15 @@ hr {
 .detail-view-content h4,
 .detail-view-content h5,
 .detail-view-content h6,
-.detail-view-content code
+.detail-view-content code,
+.detail-view-content summary
 {
     color: var(--text-color);
+}
+
+details {
+    background-color: var(--details-open-bg);
+    padding: 12px;
 }
 
 .detail-view-content li {

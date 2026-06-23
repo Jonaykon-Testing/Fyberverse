@@ -3,8 +3,8 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'May 29th, 2026';
-const version = '1.2.1.2';
+const lastUpdated = 'June 23rd, 2026';
+const version = '1.2.1.3';
 
 // menu logo redirection
 menuLogoRedirect = 'info';
@@ -864,6 +864,8 @@ let menuItems = [
                     'images/c/artibun-c20.png',
                     'images/c/artibun-c21.png',
                     'images/c/artibun-c22.png',
+                    'images/c/artibun-c23.png',
+                    'images/c/artibun-c24.png',
                 ],
                 relatives: [
                     {
@@ -904,6 +906,8 @@ let menuItems = [
                     'images/c/articat-c9.png',
                     'images/c/articat-c10.png',
                     'images/c/articat-c11.png',
+                    'images/c/articat-c12.png',
+                    'images/c/articat-c13.png',
                 ],
                 relatives: [
                     {
@@ -944,6 +948,8 @@ let menuItems = [
                     'images/c/artifox-c9.png',
                     'images/c/artifox-c10.png',
                     'images/c/artifox-c11.png',
+                    'images/c/artifox-c12.png',
+                    'images/c/artifox-c13.png',
                 ],
 
                 image: 'images/i/artifox-i.png',
@@ -982,6 +988,8 @@ let menuItems = [
                     'images/c/artifish-c11.png',
                     'images/c/artifish-c12.png',
                     'images/c/artifish-c13.png',
+                    'images/c/artifish-c14.png',
+                    'images/c/artifish-c15.png',
                 ],
                 relatives: [
                     {
@@ -1065,6 +1073,7 @@ let menuItems = [
                     'images/c/artilope-c12.png',
                     'images/c/artilope-c13.png',
                     'images/c/artilope-c14.png',
+                    'images/c/artilope-c15.png',
                 ],
                 relatives: [
                     {
@@ -1261,12 +1270,14 @@ let menuItems = [
                 pronouns: 'She',
                 gender: 'Female',
                 sexuality: 'Lesbian',
+                flags: ['gynesexual'],
                 aliases: '',
                 extra: '',
                 refsheet: '',
                 gallery: [
                     'images/c/furfy-c3.png',
                     'images/c/furfy-c6.png',
+                    'images/c/furfy-c7.png',
                     'images/c/furfy-c.png',
                     'images/c/furfy-c2.png',
                     'images/c/furfy-c4.png',
@@ -1562,6 +1573,7 @@ let menuItems = [
                 gallery: [
                     'images/c/artibon-c2.png',
                     'images/c/artibon-c7.png',
+                    'images/c/artibon-c8.png',
                     'images/c/artibon-c3.png',
                     'images/c/artibon-c4.png',
                     'images/c/artibon-c5.png',
@@ -1857,6 +1869,7 @@ let menuItems = [
                     'images/c/azurey-c2.png',
                     'images/c/azurey-c3.png',
                     'images/c/azurey-c4.png',
+                    'images/c/azurey-c5.png',
                 ],
                 relatives: [
                     {
@@ -2016,13 +2029,14 @@ let menuItems = [
                 species: 'Mouse',
                 pronouns: 'He/They',
                 gender: 'Male',
-                sexuality: 'Aromantic',
+                sexuality: 'Demiromantic',
                 aliases: '',
                 extra: '',
                 refsheet: '',
                 gallery: [
-                    'images/c/nytro-c.png',
+                    'images/c/nytro-c3.png',
                     'images/c/nytro-c2.png',
+                    'images/c/nytro-c.png',
                 ],
 
                 image: 'images/i/nytro-i.png',
@@ -2146,6 +2160,7 @@ let menuItems = [
                 refsheet: 'images/r/hazel-r.png',
                 gallery: [
                     'images/c/hazel-c.png',
+                    'images/c/hazel-c2.png',
                 ],
 
                 image: 'images/i/hazel-i.png',
@@ -2200,7 +2215,7 @@ let menuItems = [
                 isCharacter: true,
                 species: 'Cat',
                 pronouns: 'Any Pronouns',
-                gender: 'Pangender',
+                gender: 'Polygender',
                 sexuality: 'Aroace',
                 aliases: 'Skitty',
                 characterAttrs: {
@@ -2222,6 +2237,9 @@ let menuItems = [
                     'images/c/skitty-c11.png',
                     'images/c/skitty-c12.png',
                     'images/c/skitty-c13.png',
+                    'images/c/skitty-c14.png',
+                    'images/c/skitty-c15.png',
+                    'images/c/skitty-c16.png',
                 ],
                 relatives: [
                     {
@@ -2268,6 +2286,8 @@ let menuItems = [
                     'images/c/gamma-c6.png',
                     'images/c/gamma-c7.png',
                     'images/c/gamma-c9.png',
+                    'images/c/gamma-c10.png',
+                    'images/c/gamma-c11.png',
                 ],
                 relatives: [
                     {
@@ -2300,6 +2320,7 @@ let menuItems = [
                 species: 'Cat',
                 pronouns: 'They',
                 gender: 'Non-binary',
+                flags: ['xenogender'],
                 sexuality: 'Omnisexual',
                 aliases: '',
                 extra: '',
@@ -2316,6 +2337,8 @@ let menuItems = [
                     'images/c/micro-c9.png',
                     'images/c/micro-c10.png',
                     'images/c/micro-c11.png',
+                    'images/c/micro-c12.png',
+                    'images/c/micro-c13.png',
                 ],
                 relatives: [
                     {
@@ -2351,6 +2374,7 @@ let menuItems = [
                     'images/c/artilotl-c4.png',
                     'images/c/artilotl-c5.png',
                     'images/c/artilotl-c6.png',
+                    'images/c/artilotl-c7.png',
                 ],
 
                 image: 'images/i/artilotl-i.png',
@@ -2391,7 +2415,7 @@ let menuItems = [
                 isCharacter: true,
                 species: 'Lucani',
                 pronouns: 'She/They',
-                gender: 'Female',
+                gender: 'Demigirl',
                 sexuality: 'Heterosexual',
                 aliases: 'Naya',
                 extra: 'Lucani is an open-species created by <a href="https://x.com/ZestyLemonss" target="_blank">ZestyLemonss</a>!',
@@ -2399,6 +2423,7 @@ let menuItems = [
                 gallery: [
                     'images/c/nayacani-c.png',
                     'images/c/nayacani-c2.png',
+                    'images/c/nayacani-c3.png',
                 ],
                 relatives: [
                     {
@@ -2440,10 +2465,12 @@ let menuItems = [
                 pronouns: 'She/He/It',
                 gender: 'Non-binary',
                 sexuality: 'Aromantic',
+                flags: ['xenogender'],
                 aliases: '',
                 extra: '',
                 refsheet: '',
                 gallery: [
+                    'images/c/klora-c2.png',
                     'images/c/klora-c.png',
                 ],
 
@@ -2469,6 +2496,7 @@ let menuItems = [
                     'images/c/laniakea-c2.png',
                     'images/c/laniakea-c4.png',
                     'images/c/laniakea-c5.png',
+                    'images/c/laniakea-c6.png',
                 ],
                 relatives: [
                     {
@@ -2499,6 +2527,8 @@ let menuItems = [
                     'images/c/vela-c2.png',
                     'images/c/vela-c4.png',
                     'images/c/vela-c5.png',
+                    'images/c/vela-c6.png',
+                    'images/c/vela-c7.png',
                 ],
                 relatives: [
                     {
@@ -5455,6 +5485,7 @@ let menuItems = [
                 extra: '',
                 refsheet: 'images/r/semyk-r.png',
                 gallery: [
+                    'images/c/semyk-c4.png',
                     'images/c/semyk-c.png',
                     'images/c/semyk-c2.png',
                     'images/c/semyk-c3.png',
@@ -5540,6 +5571,7 @@ let menuItems = [
                 refsheet: '',
                 gallery: [
                     'images/c/blurplebun-c.png',
+                    'images/c/blurplebun-c2.png',
                     'images/i/blurplebun-i.png',
                 ],
 
@@ -5647,6 +5679,7 @@ let menuItems = [
                 extra: '',
                 refsheet: '',
                 gallery: [
+                    'images/c/usbun-c2.png',
                     'images/c/usbun-c.png',
                 ],
 
@@ -6018,6 +6051,7 @@ let menuItems = [
                     'images/c/nim-c.png',
                     'images/c/nim-c2.png',
                     'images/c/nim-c3.png',
+                    'images/c/nim-c4.png',
                 ],
 
                 image: 'images/i/nim-i.png',
