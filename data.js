@@ -2684,7 +2684,7 @@ let menuItems = [
                 refsheet: '',
                 gallery: [],
 
-                image: 'images/i/ithi-i.png',
+                image: 'images/i/ithibun-i.png',
             },
             {
                 cardId: 'yolk',
