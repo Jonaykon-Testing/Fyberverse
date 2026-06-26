@@ -6,6 +6,12 @@
 const lastUpdated = 'June 23rd, 2026';
 const version = '1.2.1.3';
 
+facts = [
+    "Artibun was a faulty clone of Articat. She was meant to have the same color as Articat and a shorter tail, but due to genetic errors ended up being the Artibun we know.",
+    "Teksui and Chromasia are two major cities in Terra, Deltadim. Most of the characters depicted in Daily Art+ live in these cities.",
+    `Nansenz was originally called "The Nonsense Galaxy".`,
+]
+
 // menu logo redirection
 menuLogoRedirect = 'info';
 
@@ -7054,6 +7060,17 @@ let menuItems = [
             <hr>
         `,
         cards: [
+            {
+                cardId: 'didyouknow',
+                title: `
+                    <h2 style='margin-bottom: -12px'>Did you know:</h2><br>
+                    <p style='color: color-mix(in srgb, var(--accentl) 75%, transparent)'>
+                        ${facts[Math.floor(Math.random() * facts.length)]}
+                    </p>
+                    `,
+                banner: true,
+                unclickable: true,
+            },
             {
                 cardId: 'artifyber',
                 title: 'Artifyber',
