@@ -3,12 +3,11 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'June 23rd, 2026';
+const lastUpdated = 'June 27th, 2026';
 const version = '1.2.1.3';
 
 // menu logo redirection
 menuLogoRedirect = 'info';
-
 
 // orbitData attributes:
 // orbit: int            - which orbit id these attributes apply to
@@ -888,7 +887,7 @@ let menuItems = [
 
                 isCharacter: true,
                 species: 'Cat',
-                pronouns: 'He/Any',
+                pronouns: 'He/She',
                 gender: 'Male',
                 sexuality: 'Bisexual',
                 aliases: 'Arti, Kiki',
@@ -1579,6 +1578,7 @@ let menuItems = [
                     'images/c/artibon-c5.png',
                     'images/c/artibon-c6.png',
                     'images/c/artibon-c.png',
+                    'images/c/artibon-c9.png',
                 ],
                 relatives: [
                     {
@@ -1755,6 +1755,7 @@ let menuItems = [
                     'images/c/artidragon-c3.png',
                     'images/c/artidragon-c4.png',
                     'images/c/artidragon-c6.png',
+                    'images/c/artidragon-c7.png',
                 ],
 
                 image: 'images/i/artidragon-i.png',
@@ -2339,6 +2340,7 @@ let menuItems = [
                     'images/c/micro-c11.png',
                     'images/c/micro-c12.png',
                     'images/c/micro-c13.png',
+                    'images/c/micro-c14.png',
                 ],
                 relatives: [
                     {
@@ -4754,6 +4756,11 @@ let menuItems = [
                 flags: ['floriewlw'],
                 aliases: '',
                 extra: '',
+                detail: `
+                    Aurelia is a green Zinnia with orange petals. She is an archaeologist and museum curator, exploring the ancient ruins of Klorofil and preserving ancient relics. She also enjoys drawing.<br>
+                    <br>
+                    She managed to find Hana through the multiversalnet, and was able to use one of her relics to open a wormhole to meet with her for a short period.
+                `,
                 refsheet: 'images/r/aurelia-r.png',
                 gallery: [
                     'images/flories/fve-aurelia.png',
@@ -5592,6 +5599,7 @@ let menuItems = [
                 extra: '',
                 refsheet: 'images/r/ebta-r.png',
                 gallery: [
+                    'images/c/ebta-c3.png',
                     'images/c/ebta-c.png',
                     'images/c/ebta-c2.png',
                 ],
