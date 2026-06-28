@@ -3,8 +3,8 @@
     -------------------------- */
 
 // Metadata
-const lastUpdated = 'June 27th, 2026';
-const version = '1.2.1.3';
+const lastUpdated = 'June 28th, 2026';
+const version = '1.2.2';
 
 // menu logo redirection
 menuLogoRedirect = 'info';
@@ -545,7 +545,7 @@ let menuItems = [
 
                 relatives: [
                     {
-                        cardId: 'template:demoCharacter',
+                        cardId: 'menuTemplate:demoCharacter',
                         relation: 'Itself'
                     },
                 ],
@@ -749,6 +749,136 @@ let menuItems = [
     Actual Website Data
     -------------------------- */
 
+    
+    {
+        // Information
+        title: 'Information',
+        menuId: 'info',
+        subtitle: 'Information about Artifyber and this website',
+        hidden: true,
+        showTitle: true,
+        image: 'icons/info.png',
+        color: 'var(--color-3)',
+        gridColor: 'var(--bg)',
+        gridColor2: 'var(--accent3)',
+        gridOpacity: 0.9,
+        orbit: 4,
+        scale: 1.5,
+        html: `
+            <h1 style="margin-top: 0">Welcome!</h1>
+            Click an item to view its content.
+        `,
+        cards: [
+            {
+                cardId: 'artifyber',
+                title: 'Artifyber',
+                subtitle: 'artifyber@gmail.com',
+                extra: ``,
+                detail: `
+                    <h2>Hello!</h2>
+                    I'm Artifyber, a furry artist who likes to draw and make music.<br>
+                    <br>`,
+                html: `
+                    I taught myself how to draw since 2021 and produce music for even longer since 2019. Only in the late 2021 did I start to appear online.<br>
+                    <br>
+                    I started my first daily art challenge on January 1st, 2023. It wasn't called Daily Art+ back then. No significant worldbuilding or lore, just a challenge to develop a consistent art style. I succeeded and I kept going. At halfway through the year I rebranded to Artifyber and started developing a little bit of lore and worldbuilding. I also released my first album "Floriverse" around that time.<br>
+                    <br>
+                    A year passed, and I'm now continuing my art hobby with the Daily Art+ series starting 2024. Drawing is the main activity I spent online the most. I mainly draw my own furry characters, but I also take art commissions from time to time. I quite enjoy drawing my own characters as I find it rather relaxing.<br>
+                    <br>
+                    Music production is also my hobby. Some say i have a diverse taste in music with the amount of genres i've produced. Honestly, i don't even know what kind of genre i'm making half of the time. I just throw 'n' slice samples and draw melodies and if it sounds good, then it's good. Even if it sounds unusual to a majority.<br>
+                    <br>
+                    In the future I want to be a game developer and create something out of the worlds and characters i've made. It's a dream of mine to create an actual game and I still have a long way to go.<br>
+                    <br>
+                    Thank you for enjoying what I make :]<br>
+                `,
+                isCharacter: true,
+                species: 'Fyber',
+                pronouns: 'She/Any',
+                gender: 'Bigender',
+                sexuality: 'Bisexual',
+                flags: ['aromantic'],
+                aliases: '',
+                refsheet: 'images/r/artifyber-r.png',
+                gallery: [
+                    "images/fyberhappy.png",
+                    "images/c/artifyber-c.png",
+                    "images/c/artifyber-c2.png",
+                ],
+                image: 'images/temp3.png'
+            },
+            {
+                cardId: 'ocrules',
+                title: 'Character Rules',
+                subtitle: `Rules regarding Artifyber's characters`,
+                detail:
+                    `
+                    Last updated: May 7th, 2026<br>
+                    Feel free to reach out to me for anything else not listed.
+                    <h2>Fanart Policy</h2>
+                    <h4>Allowed:</h4>
+                    <ul>
+                        <li>Single-character</li><br>
+                        <li>Paired with another Artifyber character</li><br>
+                        <li>Paired with your own character</li><br>
+                        <li>Shipping my characters with each other<br>
+                            <small>Preferably canonical relationship but it isn't necessary</small></li><br>
+                        <li>Suggestive content<br>
+                            <small>It will not be reposted or boosted by my profile</small></li><br>
+                    </ul>
+                    <h4>Not Allowed:</h4>
+                    <ul>
+                        <li>Modifying the design of my characters</li><br>
+                        <li>Creating all kinds of hateful or political content</li><br>
+                        <li>Using my characters in a commercial setting unless i gave permission to do so</li><br>
+                        <li>Using generative AI to create a fanart</li><br>
+                    </ul>
+                    <details>
+                        <summary>About 18+ fanarts</summary>
+                        <br>
+                        If you are creating adult content of my characters, please put proper warnings and filters.<br>
+                        <br>
+                        Adult contents will not be reposted or boosted to my profile. Do not tag me when you post your adult content. Although, feel free to notify me privately.
+                        <ul>
+                            <li>Do not draw my characters paired with your own character in NSFW settings unless i explicitly give permission to</li><br>
+                            <li>Do not draw fetish art of my characters</li><br>
+                            <li>Do not create adult content out of these characters:</li><br>
+                            <ul>
+                                <li>Artineko, Artimouse, Articani, Singularikitty, Gamma, Sukie</li><br>
+                                <li>Polygon species from <a data-open-card="hizen">Hizen</a></li><br>
+                            </ul>
+                    </details>
+                    <hr>
+                    <h2>Character Derivatives</h2>
+                    You are allowed to create a new character that is a derivative of the following as long as your character is not too similar to one of mine:
+                    <ul>
+                        <li>All kinds of florie in <a data-open-card="floriverse">Floriverse</a></li><br>
+                        <li>All kinds of object-heads or object characters in <a data-open-card="nansenz">Nansenz</a></li><br>
+                        <li>Polygon species of <a data-open-card="hizen">Hizen</a></li><br>
+                    </ul>
+                    `,
+                image: 'icons/oc-rules.png'
+            },
+            {
+                linkId: 'links',
+            },
+            {
+                separatorType: 'break'
+            },
+            {
+                linkId: 'dailyartplus',
+            },
+            {
+                linkId: 'converters',
+            },
+            {
+                linkId: 'random',
+            },
+            {
+                separatorType: 'space'
+            },
+        ]
+    },
+
     {
         // Deltadim
         title: 'Deltadim',
@@ -848,7 +978,6 @@ let menuItems = [
                     'images/c/artibun-c5.png',
                     'images/c/artibun-c6.png',
                     'images/c/artibun-c7.png',
-                    'images/c/artibun-c8.png',
                     'images/c/artibun-c9.png',
                     'images/c/artibun-c10.png',
                     'images/c/artibun-c11.png',
@@ -880,15 +1009,15 @@ let menuItems = [
                 title: 'Articat',
                 subtitle: '',
                 detail:
-                    `Articat is a white male cat, with parts of his body colored in light blurple such as his right ear and chest to abdomen area. The inside of his right ear is colored white while the other ear is colored in light blurple.<br>
+                    `Articat is a white cat, with parts of her body colored in light blurple such as her right ear and chest to abdomen area. The inside of her right ear is colored white while the other ear is colored in light blurple.<br>
                 <br>
-                Arti is a multi-genre music composer, typically creating EDM and a mix of jazz. His success as a musical artist made him just as popular as his partner Artibun on social medias.
+                Arti is a multi-genre music composer, typically creating EDM and a mix of jazz. Her success as a musical artist made her just as popular as her partner Artibun on social medias.
                 `,
 
                 isCharacter: true,
                 species: 'Cat',
-                pronouns: 'He/She',
-                gender: 'Male',
+                pronouns: 'She/He',
+                gender: 'Trans-Female',
                 sexuality: 'Bisexual',
                 aliases: 'Arti, Kiki',
                 extra: '',
@@ -6322,6 +6451,7 @@ let menuItems = [
     {
         title: 'Daily Art+',
         showTitle: true,
+        hidden: true,
         menuId: 'dailyartplus',
         subtitle: '',
         image: 'icons/dailyartplus.png',
@@ -6350,6 +6480,7 @@ let menuItems = [
     {
         title: 'Converters',
         showTitle: true,
+        hidden: true,
         menuId: 'converters',
         subtitle: '',
         image: 'icons/converters.png',
@@ -6670,123 +6801,6 @@ let menuItems = [
         ]
     },
 
-    // Orbit 4
-    {
-        // Information
-        title: 'Information',
-        menuId: 'info',
-        subtitle: 'Information about Artifyber and this website',
-        showTitle: true,
-        image: 'icons/info.png',
-        color: 'var(--color-3)',
-        gridColor: 'var(--bg)',
-        gridColor2: 'var(--accent3)',
-        gridOpacity: 0.9,
-        orbit: 4,
-        scale: 1.5,
-        html: `
-            <h1>Welcome!</h1>
-            Click an item to view its content
-            <hr>
-        `,
-        cards: [
-            {
-                cardId: 'artifyber',
-                title: 'Artifyber',
-                subtitle: 'artifyber@gmail.com',
-                semibanner: true,
-                extra: ``,
-                detail: `
-                    <h2>Hello!</h2>
-                    I'm Artifyber, a furry artist who likes to draw and make music.<br>
-                    <br>`,
-                html: `
-                    I taught myself how to draw since 2021 and produce music for even longer since 2019. Only in the late 2021 did I start to appear online.<br>
-                    <br>
-                    I started my first daily art challenge on January 1st, 2023. It wasn't called Daily Art+ back then. No significant worldbuilding or lore, just a challenge to develop a consistent art style. I succeeded and I kept going. At halfway through the year I rebranded to Artifyber and started developing a little bit of lore and worldbuilding. I also released my first album "Floriverse" around that time.<br>
-                    <br>
-                    A year passed, and I'm now continuing my art hobby with the Daily Art+ series starting 2024. Drawing is the main activity I spent online the most. I mainly draw my own furry characters, but I also take art commissions from time to time. I quite enjoy drawing my own characters as I find it rather relaxing.<br>
-                    <br>
-                    Music production is also my hobby. Some say i have a diverse taste in music with the amount of genres i've produced. Honestly, i don't even know what kind of genre i'm making half of the time. I just throw 'n' slice samples and draw melodies and if it sounds good, then it's good. Even if it sounds unusual to a majority.<br>
-                    <br>
-                    In the future I want to be a game developer and create something out of the worlds and characters i've made. It's a dream of mine to create an actual game and I still have a long way to go.<br>
-                    <br>
-                    Thank you for enjoying what I make :]<br>
-                `,
-                isCharacter: true,
-                species: 'Fyber',
-                pronouns: 'She/Any',
-                gender: 'Bigender',
-                sexuality: 'Bisexual',
-                flags: ['aromantic'],
-                aliases: '',
-                refsheet: 'images/r/artifyber-r.png',
-                gallery: [
-                    "images/fyberhappy.png",
-                    "images/c/artifyber-c.png",
-                    "images/c/artifyber-c2.png",
-                ],
-                image: 'images/temp3.png'
-            },
-            {
-                cardId: 'ocrules',
-                title: 'Character Rules',
-                subtitle: `Rules regarding Artifyber's characters`,
-                semibanner: true,
-                detail:
-                    `
-                    Last updated: May 7th, 2026<br>
-                    Feel free to reach out to me for anything else not listed.
-                    <h2>Fanart Policy</h2>
-                    <h4>Allowed:</h4>
-                    <ul>
-                        <li>Single-character</li><br>
-                        <li>Paired with another Artifyber character</li><br>
-                        <li>Paired with your own character</li><br>
-                        <li>Shipping my characters with each other<br>
-                            <small>Preferably canonical relationship but it isn't necessary</small></li><br>
-                        <li>Suggestive content<br>
-                            <small>It will not be reposted or boosted by my profile</small></li><br>
-                    </ul>
-                    <h4>Not Allowed:</h4>
-                    <ul>
-                        <li>Modifying the design of my characters</li><br>
-                        <li>Creating all kinds of hateful or political content</li><br>
-                        <li>Using my characters in a commercial setting unless i gave permission to do so</li><br>
-                        <li>Using generative AI to create a fanart</li><br>
-                    </ul>
-                    <details>
-                        <summary>About 18+ fanarts</summary>
-                        <br>
-                        If you are creating adult content of my characters, please put proper warnings and filters.<br>
-                        <br>
-                        Adult contents will not be reposted or boosted to my profile. Do not tag me when you post your adult content. Although, feel free to notify me privately.
-                        <ul>
-                            <li>Do not draw my characters paired with your own character in NSFW settings unless i explicitly give permission to</li><br>
-                            <li>Do not draw fetish art of my characters</li><br>
-                            <li>Do not create adult content out of these characters:</li><br>
-                            <ul>
-                                <li>Artineko, Artimouse, Articani, Singularikitty, Gamma, Sukie</li><br>
-                                <li>Polygon species from <a data-open-card="hizen">Hizen</a></li><br>
-                            </ul>
-                    </details>
-                    <hr>
-                    <h2>Character Derivatives</h2>
-                    You are allowed to create a new character that is a derivative of the following as long as your character is not too similar to one of mine:
-                    <ul>
-                        <li>All kinds of florie in <a data-open-card="floriverse">Floriverse</a></li><br>
-                        <li>All kinds of object-heads or object characters in <a data-open-card="nansenz">Nansenz</a></li><br>
-                        <li>Polygon species of <a data-open-card="hizen">Hizen</a></li><br>
-                    </ul>
-                    `,
-                image: 'icons/oc-rules.png'
-            },
-            {
-                linkId: 'links',
-                banner: true
-            },
-        ]
-    },
 
     {
         // Links
@@ -6794,6 +6808,7 @@ let menuItems = [
         menuId: 'links',
         subtitle: 'All links to my social media',
         showTitle: true,
+        hidden: true,
         image: 'icons/earth.png',
         color: 'var(--color-9)',
         orbit: 5,
@@ -7096,6 +7111,7 @@ let menuItems = [
         // Random
         title: 'Random Character',
         menuId: 'random',
+        hidden: true,
         showTitle: true,
         image: 'icons/oc-random.png',
         color: 'var(--color-12)',
