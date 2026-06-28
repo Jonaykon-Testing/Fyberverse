@@ -25,7 +25,7 @@ let SFX_MASTER_VOL = 0;
 let SIMPLE_MODE = getSimpleMode();
 // Simple mode index data
 const MAIN_MENU_TITLE = pickSplash();
-const MAIN_MENU_SUBTITLE = 'artifyber.xyz';
+const MAIN_MENU_SUBTITLE = '';
 const MAIN_MENU_TEXT_OFFSET_Y = 90;
 const mainMenuLogo = 'images/menu-logo.png';
 const SIMPLE_MODE_MENU_LOGO_SCALE = 1.5;
@@ -1324,6 +1324,7 @@ document.addEventListener('click', (e) => {
 
 // play sfx
 function playSound(soundId, volume = 1) {
+    if (SFX_MASTER_VOL === 0) return;
     s = document.getElementById(soundId);
     if (!s) return;
     s.pause();
@@ -1834,6 +1835,19 @@ function resetLayoutTransition() {
     imageView.classList.remove("no-transition");
 }
 
+const assetsLoaded = [];
+let assetsProgress = 0;
+function preloadAssets(priority, assetsArray, onProgress) {
+    return Promise.all(
+        assetsArray.map(src =>
+            fetch(src, {priority}).then(() => {
+                assetsProgress++;
+                if (onProgress) onProgress(assetsProgress, assetsArray.length);
+            }).catch(() => {})
+        )
+    );
+}
+
 // disable most transitions if simple mode is activated
 if (SIMPLE_MODE) {
     contentView.classList.add("no-transition-at-all");
@@ -1874,4 +1888,14 @@ window.addEventListener('load', async () => {
     // load any URL parameters after menu is initialized
     await loadAndPopstateHandler();
     /* pickSplash(); */
+
+    if (!navigator.connection?.saveData) {
+        setLayoutViz(downloadingAssets, true);
+        const loadingProgress = document.getElementById('loadingProgress');
+        const data = await fetch('assets.json').then(res => res.json());
+        await preloadAssets("low", data, (loaded, total) => {
+            if (loadingProgress) loadingProgress.innerText = `Loading ${loaded} / ${total}`;
+        });
+        setLayoutViz(downloadingAssets, false);
+    }
 });

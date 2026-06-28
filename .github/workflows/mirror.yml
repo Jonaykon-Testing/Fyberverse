@@ -1,0 +1,60 @@
+name: Mirror artifyber.xyz
+
+on:
+    schedule:
+        - cron: "0 * * * *" # Run every hour
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    mirror:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+              with:
+                  ref: artifyber.xyz
+
+            - name: Mirror site
+              run: |
+                  wget \
+                      --recursive \
+                      --no-parent \
+                      --convert-links \
+                      --adjust-extension \
+                      --page-requisites \
+                      --no-cache \
+                      --no-http-keep-alive \
+                      --header="Cache-Control: no-cache" \
+                      --no-host-directories \
+                      --cut-dirs=0 \
+                      -P . \
+                      https://artifyber.xyz
+
+            - name: Commit changes with version
+              id: commit
+              run: |
+                  git config user.name "github-actions"
+                  git config user.email "actions@github.com"
+
+                  VERSION=$(grep -Eo 'version[[:space:]]*[:=][[:space:]]*["'"'"'][^"'"'"']+["'"'"']' data.js | sed -E 's/.*["'"'"']([^"'"'"']+)["'"'"'].*/\1/' || echo "unknown")
+
+                  git add .
+                  git diff --cached --quiet && exit 0
+
+                  git commit -m "Update to v$VERSION"
+                  git push origin HEAD:artifyber.xyz
+
+                  echo "changed=true" >> "$GITHUB_OUTPUT"
+                  echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+            - name: Send Discord webhook
+              if: steps.commit.outputs.changed == 'true'
+              run: |
+                  curl -H "Content-Type: application/json" \
+                      -X POST \
+                      -d "{\"content\":\"artifyber.xyz updated to v${{ steps.commit.outputs.version }}\"}" \
+                      "${{ secrets.UPDATES_DISCORD_WEBHOOK }}"

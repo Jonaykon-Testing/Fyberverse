@@ -6,6 +6,77 @@
 const lastUpdated = 'June 28th, 2026';
 const version = '1.2.2';
 
+facts = [
+    `Teksui and Chromasia are two major cities in Terra, Deltadim. Most of the characters depicted in Daily Art+ live in these cities.`,
+    `Fyber is "up there alone".`,
+    `Fyber has gone insane, but is good at hiding it.`,
+    `Fyber can interfere indirectly.`,
+    `Artifox really hates being forced to femininity.`,
+    `I.A.F.O. is a fake fursona Azka made before becoming a furry.`,
+    `There are both intelligent and unintelligent animals. The unintelligent ones become the food.`,
+    `Singularikitty does not feel hunger. He's just consuming matter for their love of the game.`,
+    `The only thing preventing Singularikitty from consuming Terra is the fact that Terra's civilization has advanced enough to constantly transmit radio waves from their electronics which Singularikitty detected and say "oh, there must be people here. i should stay away!`,
+    `The lucani planet has technologia.`,
+    `For Singularikitty most megastructures would be hard to see from the naked eye but if Singularikitty suspect it's inhabited then he would not eat it.`,
+    `Terra is technologically advanced to go to other planets but not really, they got slightly advanced rockets but not super ones.`,
+    `If something falls off of Hizen's islands it keeps falling until it hits something, like another piece of floating island.`,
+    `Shirley and Rose are Indonesian.`,
+    `A lot of the Chromasia citizens can speak a language identical to Indonesian.`,
+    `Artibun is a white female rabbit, with parts of her body colored in lilac, such as her arms, legs, right ear, half of her tail, and chest to abdomen area. Her inner ears are colored in blurple and has dark blue eyes.`,
+    `Artibun has a passion for drawing, singing, and cooking delicacies. She is known in Terra as a celebrity by her popularity on social medias.`,
+    `Artibun was born as a supposedly faulty clone of Articat. On prototype, she was meant to only be a near identical copy of Articat except with bunny ears and a puffy tail. However, an accident happened, and her flesh wasn't developed correctly. Thankfully, she was later recovered on a second attempt thanks to the love of her partner.`,
+    `Articat is a white male cat, with parts of his body colored in light blurple such as his right ear and chest to abdomen area. The inside of his right ear is colored white while the other ear is colored in light blurple.`,
+    `Arti is a multi-genre music composer, typically creating EDM and a mix of jazz. His success as a musical artist made him just as popular as his partner Artibun on social medias.`,
+    `Artifox is an arctic fox with blue accent colors on parts of his body, such as arms, pawfeet and the base of his tail. His inner ears and eyes are also colored in blue and he has top surgery scars.`,
+    `Artifox likes to play drums and often expresses his pride as a transgender male. Although his selfish and sometime overconfident attitude made him look like a jerk to some people, he still care about the people he loved, such as his family and especially his sister Anna Fox.`,
+    `Artifox was born in Chromasia and moved to Teksui after his gender-affirming surgery. He's currently living in an apartment and work part-time as a fast food employee.`,
+    `Artifish is a white non-binary tiger-cat hybrid with shark features, having a dorsal fin at their back and a caudal fin at the end of their tail. They have green accent colors on their ears, arms, legs, and fins, as well as part of their hair.`,
+    `Artifish lives with their partner Artilope at the outskirts of Teksui and has a passion of cooking and baking.`,
+    `While Artifish is an aquatic creature who needs water to survive, they can also breathe in air as long as their organs stay wet, which they do by sleeping in an aquarium or soaking themselves in nearby pond every couple hours.`,
+    `Artigoat is a white male goat with yellow fur pattern on his legs and ears, as well as having a pair of short pointy horns. He also has a pair of hooves as his feet.`,
+    `Artigoat has a hobby of reading books, writing stories, and play saxophone. He lives in an apartment with his partner Artipup and works as a cashier at a local supermarket in Teksui.`,
+    `Artilope is a white female jackalope, a fusion between antelope and jackrabbit, with orange fur on her arms, legs, right ear, half of her tail, and chest in a shape resembling a heart. She has a pair of antlers on her head that look like forks.`,
+    `Artilope lives at the outskirts of Teksui with her partner Artifish, she is a lumberjack and carpenter. She likes to make wood sculptures and furnitures.`,
+    `Artipup is a white male dog with red fur on his legs, right ear, muzzle and abdomen.`,
+    `Artipup lives in an apartment with his partner Artigoat, this puppy occasionally makes music with his minimal setup, being a laptop, MIDI keytar and an amplifier.`,
+    `Artineko is a female human who loves to cosplay as a pink catgirl, having pink cat ears, long hair, and paw gloves.`,
+    `Artineko is an influencer and streamer who makes content on social medias. She has a younger sibling with the name Artimouse, who lives in Chromasia.`,
+    `Artineko is rarely seen without her accessories, as she feels more comfortable keeping them on.`,
+    `Eros is a tall black female cat with light gray fur on her face, darker shade of black on the tip of her ears, and orange pawpads. She has no tail and her ears are pointy, as well as wearing glasses.`,
+    `Eros works as a barista at a local cafe in Teksui. She has a shy and introverted personality and prefer to not be the center of attention. She lives in an apartment with her loving partner named Sora.`,
+    `Sora is a short light gray female cat with darker gray fur on her face. She has no tail and her ears are pointy.`,
+    `Sora is unemployed and spends most of her time at the apartment she shares with her partner Eros. She enjoys writing stories.`,
+    `Furfy is a white female cat with green fur on the tip of her tail and lighter shade of green for her face. Her pawpads are green and is often seen wearing a green sweater.`,
+    `Furfy works as a baker at her own bakery shop in Teksui. Other than baking loaves of bread, she also enjoys taking care of her plants and flowers in her free time. She lives with her loving partner named Mist.`,
+    `Mist is a white female cat with her inner ears colored in teal and lighter shade of teal for her face. Her pawpads are teal and is often seen wearing a teal sweater and light blue scarf.`,
+    `Mist works together with her partner Furfy at the bakery shop in Teksui. Other than that she also loves to take care of plants.`,
+    `Card is an orange female cat with an open cardboard box as her head. It consists of drawn-on cat features such as triangular ears, as well as some informational text on the sides of her head like a typical packaging box. Her eyes and mouth are also seemingly drawn-on. However it can dynamically change expression like a real face.`,
+    `Card has a part-time job as a delivery courier. She lives with her partner Gift at their own home in Teksui. She likes to make crafts and origamis out of paper. She also has an obsession of collecting anything and sort them into cardboard boxes.`,
+    `Gift is a white female rabbit with a gift box as her head. It's a plain white box with a red ribbon tied around it and a bow on top. It also has two droopy bunny ears attached from the lid. Like Card, her eyes and mouth are seemingly drawn-on but can dynamically change expressions like a real face.`,
+    `Gift lives with her partner Card and really love making surprises and parties for her loved ones and friends.`,
+    `Fika is an orange female fox with long light beige hair. Her inner ears and pawpads are in slightly darker shade of orange.`,
+    `Fika lives with Rai as a couple. She enjoys drawing and painting as well as singing. She sometimes upload her paintings on social medias.`,
+    `As a neighbor to Artibun and Articat, Fika doesn't really interact with them too much. She doesn't hate them as much as Rai does, but she still prefer to keep a distance from both Arti's.`,
+    `Rai is a white male fox with grey ears and black eyes. His pupils are white and has no pawpads.`,
+    `Rai has a passion in music production, often making EDM tracks in his home studio. He lives with his partner Fika and is a neighbor to Artibun and Articat.`,
+    `Despite being neighbors, Rai dislikes both Arti's. He finds them too obnoxious and often tries to avoid them as much as possible. The reason? Might be because of their popularity and fame.`,
+    `Xanthe is a white jackalope with short orange hair, light beige fur on her arms and legs, and red eyes. She has a pair of spiky antlers and hooves for her feet.`,
+    `Xanthe lives at the central part of Teksui. She loves photography and traveling. She occasionally visits her sister at the outskirts of Teksui to hang out, or just to annoy her.`,
+    `Singularikitty is a black cat with red fur on his arms and legs, orange eyes, and a ring on the tip of his tail. He always wears a collar that holds a small black hole which they can deploy anytime.`,
+    `Singularikitty's eyes and mouth essentially function as black holes, which sucks in anything that gets nearby. However, she doesn't use this power to harm others, as she is a very kind and gentle cat. She constantly warn people to not get nearby his face for that matter.`,
+    `Singularikitty has an ability to grow or shrink in size as he pleases. He also can toggle the black hole on his collar whenever he wants.`,
+    `'DESTROYER' is the name Singularikitty has given to his black hole.`,
+    `Gamma is a white cat with blue fur on her arms and legs, dark inverted blue eyes, a long hair, and a ring on the tip of her tail. Her color scheme is essentially Skitty's inverted colors.`,
+    `Gamma is a very shy and soft person. She always wears a blue collar that holds a small white hole which she can deploy anytime. Her white hole ejects anything that gets nearby. As such, she is very warm due to constant radiation emitted from her body.`,
+    `Gamma has an ability to grow or shrink in size as she pleases. She also can toggle the white hole on her collar whenever she wants.`,
+    `Despite being a complete opposite of Skitty, Gamma confirmed that she is not his sibling, as the matter that she spew out does not come from Skitty's black hole. She's still speculating where it comes from...`,
+    `'RESTORER' is the name Gamma has given to her white hole.`,
+    `Micro is a non-binary dark purple cat with half of their body parts (eyes, pawpads, glows, etc.) in blue while the other half is in pink. They always wear a blue collar with a pink bell. They also sometimes wear an air bubble on their head purely for cosmetic.`,
+    `As a space cat, Micro doesn't need to breathe to survive. They also don't need to consume food or drink, as they have no mouth. This also makes them mute. They communicate through body language and writing on a small board they always carry around.`,
+    `Micro has a flying saucer that they use to travel long-distances in space. The saucer is also a storage for all sorts of thing they collect from their travels.`,
+    `Micro possesses a power of vacuum manipulation, albeit they don't really use it often as it is very limited. They can push and pull objects by controlling the vacuum around them`,
+]
+
 // menu logo redirection
 menuLogoRedirect = 'info';
 
@@ -862,6 +933,9 @@ let menuItems = [
                 linkId: 'links',
             },
             {
+                linkId: 'comms',
+            },
+            {
                 separatorType: 'break'
             },
             {
@@ -916,6 +990,52 @@ let menuItems = [
             },
             {
                 linkId: 'deltadim-deltaspace',
+            },
+            {
+                linkId: 'deltadim-missing',
+            },
+            {
+                cardId: 'vylanandilyna',
+                title: 'Vylan & Ilyna',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Cat',
+                pronouns: 'They/Any',
+                gender: 'Non-binary',
+                sexuality: 'Asexual (Vylan), Pansexual (Ilyna)',
+                flags: ['asexual', 'pansexual'],
+                aliases: '',
+                extra: `
+                    Conjoined twins
+                `,
+                refsheet: 'images/r/vylanandilyna-r.png',
+                gallery: [],
+                relatives: [],
+
+                image: 'images/i/vylanandilyna-i.png',
+            },
+            {
+                cardId: 'bunn',
+                title: 'Blobunnies',
+                subtitle: 'Species',
+                detail: `
+                Blobunny (Lepus Spheroformis, also known as "Bunn") is a fascinating species commonly found in Deltadim. This creature resembles a fluffy ball, allowing to roll and bounce with surprising agility.<br>
+                <br>
+                The Blobunny thrives in colonies ranging from 5 to 20 individuals. With their petite size, measuring a mere 5 inches, these squishy creatures are surely huggable and can provide comfort as a pet :3`,
+
+                isCharacter: true,
+                aliases: 'Bunn',
+                extra: '',
+                characterAttrs: {
+                    'Size': '5 inches (13cm)',
+                },
+                refsheet: 'images/r/bunn-r.png',
+                gallery: [],
+                relatives: [],
+
+                image: 'images/i/bunn-i.png',
             },
             {
                 title: 'Pinned',
@@ -2687,6 +2807,246 @@ let menuItems = [
                 gallery: [],
 
                 image: 'images/i/ichor-i.png',
+            },
+        ]
+    },
+    {
+        menuId: 'deltadim-missing',
+        title: 'Missing',
+        subtitle: 'Erased from the timeline',
+        image: 'images/missing.png',
+        color: '#BFBFBF',
+        parent: 'deltadim',
+        hidden: true,
+        cards: [
+            {
+                cardId: 'iafo',
+                title: 'I.A.F.O',
+                subtitle: 'Im a Fuwwy OwO',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Cat',
+                pronouns: 'They/Them',
+                gender: 'Non-binary',
+                sexuality: 'Lesbian',
+                aliases: '',
+                extra: '',
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/iafo-i.png',
+            },
+            {
+                cardId: 'corinne',
+                title: 'Corinne',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Cat-robot',
+                pronouns: 'She/Him',
+                gender: 'Bigender',
+                sexuality: 'Lesbian',
+                aliases: '',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 180',
+                },
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/corinne-i.png',
+            },
+            {
+                cardId: 'neelo',
+                title: 'Neelo',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Lemon cat',
+                pronouns: 'He/Them',
+                gender: 'Male',
+                sexuality: 'Bisexual',
+                aliases: '',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 46',
+                },
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/neelo-i.png',
+            },
+            {
+                cardId: 'nala',
+                title: 'Nala',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Bunny',
+                pronouns: 'She/He/Any',
+                gender: 'Trans-female',
+                sexuality: 'Bisexual',
+                aliases: '',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 433',
+                },
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/nala-i.png',
+            },
+            {
+                cardId: 'ithi',
+                title: 'Ithi',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Robunny',
+                pronouns: 'She/Any',
+                gender: 'Female',
+                sexuality: 'Bisexual',
+                aliases: '',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 179',
+                },
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/ithibun-i.png',
+            },
+            {
+                cardId: 'yolk',
+                title: 'Yolk',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Macroscopic single-celled organism',
+                pronouns: 'They/She/Any',
+                gender: 'Genderless',
+                sexuality: 'Aroace',
+                aliases: '',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 282',
+                },
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/yolk-i.png',
+            },
+            {
+                cardId: 'ashy',
+                title: 'Ashy',
+                subtitle: '',
+                detail: '',
+
+                isCharacter: true,
+                species: 'Multispecies',
+                pronouns: 'She/Her',
+                gender: 'Female',
+                sexuality: 'Lesbian',
+                aliases: '',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 666',
+                    'Missing since': 'Day 666',
+                },
+                refsheet: '',
+                gallery: [],
+
+                image: 'images/i/ashy-i.png',
+            },
+            {
+                cardId: 'shirley',
+                title: 'Shirley',
+                subtitle: '',
+                detail: `
+                Shirley is an orange cat-fox hybrid with white fur on her ears, muzzle, chest, abdomen, and the tip of her tail. Her eyes are yellow and her pawpads and inner ears are orange.<br>
+                <br>
+                She lives with her boyfriend Rose, and works as a barista at a local cafe in Chromasia. She also loves gardening and taking care of pretty flowers.`,
+
+                isCharacter: true,
+                species: 'Cat + Fox',
+                pronouns: 'She',
+                gender: 'Female',
+                sexuality: 'Heterosexual',
+                aliases: 'Manda, Alamanda',
+                characterAttrs: {
+                    'Last seen': 'Day 752',
+                    'Missing since': 'Day 835',
+                    'Realm Origin': '<a data-open-card="deltadim-chromasia">Deltadim - Chromasia</a>',
+                },
+                extra: '',
+                refsheet: 'images/r/shirley-r.png',
+                gallery: [
+                    'images/c/shirley-c.png',
+                    'images/c/shirley-c2.png',
+                    'images/c/shirley-c3.png',
+                    'images/c/shirley-c4.png',
+                    'images/c/shirley-c5.png',
+                    'images/c/shirley-c6.png',
+                    'images/c/shirley-c7.png',
+                    'images/c/shirley-c8.png',
+                    'images/c/shirley-c9.png',
+                    'images/c/shirley-c10.png',
+                    'images/c/shirley-c11.png',
+                    'images/c/shirley-c12.png',
+                ],
+                relatives: [
+                    {
+                        cardId: 'deltadim-missing:rose',
+                        relation: 'Significant Other'
+                    },
+                ],
+
+                image: 'images/i/shirley-i.png',
+            },
+            {
+                cardId: 'rose',
+                title: 'Rose',
+                subtitle: '',
+                detail: `
+                Rose is a green fox with red fur covering his head and tail, and dark green neck fur. In fact, his color schemes and fur patterns look like a typical rose flower.<br>
+                <br>
+                Rose really likes the color pink. He can often be seen wearing pink sweaters and skirts or trousers. He doesn't mind being called cute or pretty despite being a male.<br>
+                <br>
+                He works as a farmer in Chromasia, growing various kinds of crops to sell at the local market.`,
+
+                isCharacter: true,
+                species: 'Fox',
+                pronouns: 'He/Any',
+                gender: 'Male',
+                sexuality: 'Heterosexual',
+                aliases: 'Rosey',
+                extra: '',
+                characterAttrs: {
+                    'Last seen': 'Day 698',
+                    'Missing since': 'Day 835',
+                    'Realm Origin': '<a data-open-card="deltadim-chromasia">Deltadim - Chromasia</a>',
+                },
+                refsheet: 'images/r/rose-r.png',
+                gallery: [
+                    'images/c/rose-c.png',
+                    'images/c/rose-c2.png',
+                    'images/c/rose-c3.png',
+                    'images/c/rose-c4.png',
+                ],
+                relatives: [
+                    {
+                        cardId: 'deltadim-missing:shirley',
+                        relation: 'Significant Other'
+                    },
+                ],
+
+                image: 'images/i/rose-i.png',
             },
         ]
     },
@@ -6495,7 +6855,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/GENOTHETAEX.ttf" target="_blank">Download Genotheta Font</a><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/GENOTHETAEX.ttf" target="_blank">Download Genotheta Font</a><br>
                     <h2>Latin to Genotheta</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6595,7 +6955,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/starstroke.ttf" target="_blank">Download Starstroke Font</a><br><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/starstroke.ttf" target="_blank">Download Starstroke Font</a><br><br>
                     <h2>Latin to Starstroke</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6661,7 +7021,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/NADIRUNE.ttf" target="_blank">Download NADIRUNE Font</a><br><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/NADIRUNE.ttf" target="_blank">Download NADIRUNE Font</a><br><br>
                     <h2>Latin to NADIRUNE</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6727,7 +7087,7 @@ let menuItems = [
                 semibanner: true,
                 detail:
                     `
-                    <a href="https://artifyber.xyz/fonts/zenpen.ttf" target="_blank">Download Zenpen Font</a><br><br>
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/zenpen.ttf" target="_blank">Download Zenpen Font</a><br><br>
                     <h2>Latin to Zenpen</h2>
                     Latin input
                     <div style="margin-top:10px;">
@@ -6798,9 +7158,224 @@ let menuItems = [
                     `,
                 image: 'icons/zenpen.png'
             },
+            {
+                cardId: 'squaracters',
+                title: 'Squaracters',
+                subtitle: 'Convert Latin to Squaracters',
+                semibanner: true,
+                detail:
+                    `
+                    <a href="https://jonaykon.github.io/fyberverse/fonts/squaracters.ttf" target="_blank">Download Squaracters Font</a><br><br>
+                    <h2>Latin to Squaracters</h2>
+                    Latin input
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersInput" rows="4" style="width:100%;"></textarea>
+                    </div>
+                    <br>
+                    Squaracters output
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersOutput" rows="4" style="width:100%;" readonly></textarea>
+                    </div>
+
+                    <br><br><hr>
+
+                    <h2>Squaracters to Latin</h2>
+                    Squaracters input
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersInputRev" class="squaracters" rows="2" style="width:100%;" readonly></textarea>
+                    </div>
+                    <br>
+                    <button id="copySquaractersRevBtn" type="button">Copy</button> -  latin output<br>
+                    <div style="margin-top:10px;">
+                        <textarea id="squaractersOutputRev" rows="2" style="width:100%;" readonly></textarea>
+                    </div>
+                    <br>
+                    <div class="keyboardLayout" style="margin-top:10px;">
+                        <button type="button" class="keycap squaractersKeys" data-key="DEL">DEL</button>
+                        <button type="button" class="keycap squaractersKeys" data-key="CLR">CLR</button>
+                        <button type="button" class="keycap squaractersKeys" data-key=" ">SPACE</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="A">A</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="B">B</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="C">C</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="D">D</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="E">E</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="F">F</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="G">G</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="H">H</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="I">I</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="J">J</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="K">K</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="L">L</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="M">M</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="N">N</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="O">O</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="P">P</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="Q">Q</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="R">R</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="S">S</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="T">T</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="U">U</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="V">V</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="W">W</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="X">X</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="Y">Y</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="Z">Z</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="0">0</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="1">1</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="2">2</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="3">3</button>
+                        <button type="button" class="keycap squaracters squaractersKeys" data-key="4">4</button>
+                    </div>
+                    `,
+                image: 'icons/squaracters.png'
+            },
         ]
     },
+    {
+        // Random
+        title: 'Random Character',
+        menuId: 'random',
+        showTitle: true,
+        image: 'icons/oc-random.png',
+        color: 'var(--color-12)',
+        orbit: 3,
+        scale: 1.5,
+        invisible: true,
+        cards: [
+            {
+                cardId: 'random',
+            }
+        ],
+    },
 
+    // Orbit 4
+    {
+        // Information
+        title: 'Information',
+        menuId: 'info',
+        subtitle: 'Information about Artifyber and this website',
+        showTitle: true,
+        image: 'icons/info.png',
+        color: 'var(--color-3)',
+        gridColor: 'var(--bg)',
+        gridColor2: 'var(--accent3)',
+        gridOpacity: 0.9,
+        orbit: 4,
+        scale: 1.5,
+        html: `
+            <h1>Welcome!</h1>
+            Click an item to view its content
+            <hr>
+        `,
+        cards: [
+            {
+                cardId: 'didyouknow',
+                title: `
+                    <h2 style='margin-bottom: -12px'>Did you know:</h2><br>
+                    <p style='color: color-mix(in srgb, var(--accentl) 75%, transparent)'>
+                        ${facts[Math.floor(Math.random() * facts.length)]}
+                    </p>
+                    `,
+                banner: true,
+                unclickable: true,
+            },
+            {
+                cardId: 'artifyber',
+                title: 'Artifyber',
+                subtitle: 'artifyber@gmail.com',
+                semibanner: true,
+                extra: ``,
+                detail: `
+                    <h2>Hello!</h2>
+                    I'm Artifyber, a furry artist who likes to draw and make music.<br>
+                    <br>`,
+                html: `
+                    I taught myself how to draw since 2021 and produce music for even longer since 2019. Only in the late 2021 did I start to appear online.<br>
+                    <br>
+                    I started my first daily art challenge on January 1st, 2023. It wasn't called Daily Art+ back then. No significant worldbuilding or lore, just a challenge to develop a consistent art style. I succeeded and I kept going. At halfway through the year I rebranded to Artifyber and started developing a little bit of lore and worldbuilding. I also released my first album "Floriverse" around that time.<br>
+                    <br>
+                    A year passed, and I'm now continuing my art hobby with the Daily Art+ series starting 2024. Drawing is the main activity I spent online the most. I mainly draw my own furry characters, but I also take art commissions from time to time. I quite enjoy drawing my own characters as I find it rather relaxing.<br>
+                    <br>
+                    Music production is also my hobby. Some say i have a diverse taste in music with the amount of genres i've produced. Honestly, i don't even know what kind of genre i'm making half of the time. I just throw 'n' slice samples and draw melodies and if it sounds good, then it's good. Even if it sounds unusual to a majority.<br>
+                    <br>
+                    In the future I want to be a game developer and create something out of the worlds and characters i've made. It's a dream of mine to create an actual game and I still have a long way to go.<br>
+                    <br>
+                    Thank you for enjoying what I make :]<br>
+                `,
+                isCharacter: true,
+                species: 'Fyber',
+                pronouns: 'She/Any',
+                gender: 'Bigender',
+                sexuality: 'Bisexual',
+                flags: ['aromantic'],
+                aliases: '',
+                refsheet: 'images/r/artifyber-r.png',
+                gallery: [
+                    "images/fyberhappy.png",
+                    "images/c/artifyber-c.png",
+                    "images/c/artifyber-c2.png",
+                ],
+                image: 'images/temp3.png'
+            },
+            {
+                cardId: 'ocrules',
+                title: 'Character Rules',
+                subtitle: `Rules regarding Artifyber's characters`,
+                semibanner: true,
+                detail:
+                    `
+                    Last updated: May 7th, 2026<br>
+                    Feel free to reach out to me for anything else not listed.
+                    <h2>Fanart Policy</h2>
+                    <h4>Allowed:</h4>
+                    <ul>
+                        <li>Single-character</li><br>
+                        <li>Paired with another Artifyber character</li><br>
+                        <li>Paired with your own character</li><br>
+                        <li>Shipping my characters with each other<br>
+                            <small>Preferably canonical relationship but it isn't necessary</small></li><br>
+                        <li>Suggestive content<br>
+                            <small>It will not be reposted or boosted by my profile</small></li><br>
+                    </ul>
+                    <h4>Not Allowed:</h4>
+                    <ul>
+                        <li>Modifying the design of my characters</li><br>
+                        <li>Creating all kinds of hateful or political content</li><br>
+                        <li>Using my characters in a commercial setting unless i gave permission to do so</li><br>
+                        <li>Using generative AI to create a fanart</li><br>
+                    </ul>
+                    <details>
+                        <summary>About 18+ fanarts</summary>
+                        <br>
+                        If you are creating adult content of my characters, please put proper warnings and filters.<br>
+                        <br>
+                        Adult contents will not be reposted or boosted to my profile. Do not tag me when you post your adult content. Although, feel free to notify me privately.
+                        <ul>
+                            <li>Do not draw my characters paired with your own character in NSFW settings unless i explicitly give permission to</li><br>
+                            <li>Do not draw fetish art of my characters</li><br>
+                            <li>Do not create adult content out of these characters:</li><br>
+                            <ul>
+                                <li>Artineko, Artimouse, Articani, Singularikitty, Gamma, Sukie</li><br>
+                                <li>Polygon species from <a data-open-card="hizen">Hizen</a></li><br>
+                            </ul>
+                    </details>
+                    <hr>
+                    <h2>Character Derivatives</h2>
+                    You are allowed to create a new character that is a derivative of the following as long as your character is not too similar to one of mine:
+                    <ul>
+                        <li>All kinds of florie in <a data-open-card="floriverse">Floriverse</a></li><br>
+                        <li>All kinds of object-heads or object characters in <a data-open-card="nansenz">Nansenz</a></li><br>
+                        <li>Polygon species of <a data-open-card="hizen">Hizen</a></li><br>
+                    </ul>
+                    `,
+                image: 'icons/oc-rules.png'
+            },
+            {
+                linkId: 'links',
+                banner: true
+            },
+        ]
+    },
 
     {
         // Links
@@ -6890,6 +7465,13 @@ let menuItems = [
                 subtitle: '',
                 url: 'https://toyhou.se/artifyber',
                 image: 'icons/l-toyhouse.png'
+            },
+            {
+                cardId: 'kofi',
+                title: 'Ko-Fi',
+                subtitle: '',
+                url: 'https://ko-fi.com/artifyber',
+                image: 'icons/comm-kofi.png'
             },
             {
                 cardId: 'alts',
@@ -7183,8 +7765,7 @@ let menuItems = [
                 title: `Website Info`,
                 subtitle: `
                         <br>
-                        Updated: ${lastUpdated}<br>
-                        Version: ${version}<br>
+                        Based on version: ${version}<br>
                         <br>
                         <div style='color: color-mix(in srgb, var(--accentl) 75%, transparent)' id="totalCardsCounter"></div>
                         <div style='color: color-mix(in srgb, var(--accentl) 75%, transparent)' id="totalMenusCounter"></div>
@@ -7202,11 +7783,19 @@ let menuItems = [
                 title: `Credits`,
                 subtitle: `
                         <br>
-                        Developed by:<br>
+                        Created by:<br>
                         Artifyber<br>
                         <br>
-                        Special thanks:<br>
-                        Azka "Artist" Zavian
+                        Forked by:<br>
+                        Jonaykon<br>
+                        <br>
+                        <a href="https://fontstruct.com/fontstructions/show/2768650/squaracters">Squaracters font</a>:<br>
+                        Made by: <a href="https://fontstruct.com/fontstructors/2329103/maxy-dev">maxy_dev</a><br>
+                        Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><br>
+                        <br>
+                        Last seen dates compiled by: <br>
+                        Cleaner900<br>
+                        <a href="https://discord.com/channels/1375093197751062648/1485625814941962300/1486025935797878865">Source</a> (in <a href="https://discord.gg/Af4FHzw5bx">Muppie Hive</a> Discord server)
                 `,
                 unclickable: true,
                 banner: true,
@@ -7231,7 +7820,7 @@ let menuItems = [
         subtitle: '',
         image: '',
         color: 'var(--color-10)',
-        orbit: 127,
+        orbit: 10,
         scale: 0.5,
         invisible: true,
         cards: [
@@ -7248,7 +7837,7 @@ let menuItems = [
 ];
 
 // Beecat
-if (Math.floor(Math.random() * 333) == 0) {
+if (Math.floor(Math.random() * 1) == 0) {
     menuItems.forEach(menu => {
         if (menu.menuId == "info") {
             menu.cards.push({
